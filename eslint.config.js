@@ -25,6 +25,7 @@ export default [
     rules: {
       // Component naming
       'vue/multi-word-component-names': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
 
       // Component usage rules - INI YANG PENTING!
       'vue/no-undef-components': 'error',

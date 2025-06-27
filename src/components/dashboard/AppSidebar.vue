@@ -56,14 +56,14 @@ const data = {
       icon: LayoutDashboard,
     },
     {
-      title: 'Playground',
+      title: 'Pages',
       url: '#',
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: 'History',
-          url: '#',
+          title: 'Blogs',
+          url: '/dashboard/blogs',
         },
         {
           title: 'Starred',

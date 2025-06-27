@@ -18,7 +18,16 @@ const props = defineProps<{
     <BreadcrumbList>
       <template v-for="(item, index) in props.breadcrumbs" :key="item.href">
         <BreadcrumbItem>
-          <BreadcrumbLink :href="item.href">{{ item.title }}</BreadcrumbLink>
+          <BreadcrumbLink
+            :href="item.href"
+            :class="
+              index === props.breadcrumbs.length - 1
+                ? 'text-[#42b883] hover:text-[#369f6b]'
+                : ''
+            "
+          >
+            {{ item.title }}
+          </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator v-if="index < props.breadcrumbs.length - 1" />
       </template>

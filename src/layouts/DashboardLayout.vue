@@ -4,6 +4,14 @@ import AppSidebarHeader from '@/components/dashboard/AppSidebarHeader.vue';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import type { BreadcrumbItem } from '@/types';
 
+const data = {
+  user: {
+    name: 'shadcn',
+    email: 'm@example.com',
+    avatar: '/avatars/shadcn.jpg',
+  },
+};
+
 defineProps<{
   breadcrumbs: BreadcrumbItem[];
 }>();
@@ -13,7 +21,7 @@ defineProps<{
   <SidebarProvider>
     <AppSidebar />
     <SidebarInset>
-      <AppSidebarHeader :breadcrumbs="breadcrumbs" />
+      <AppSidebarHeader :user="data.user" :breadcrumbs="breadcrumbs" />
       <slot />
     </SidebarInset>
   </SidebarProvider>

@@ -2,8 +2,7 @@
 import type { SidebarProps } from '@/components/ui/sidebar';
 
 import NavMain from '@/components/dashboard/NavMain.vue';
-import NavProjects from '@/components/dashboard/NavProjects.vue';
-import NavUser from '@/components/dashboard/NavUser.vue';
+// import NavUser from '@/components/dashboard/NavUser.vue';
 import TeamSwitcher from '@/components/dashboard/TeamSwitcher.vue';
 import {
   AudioWaveform,
@@ -17,7 +16,7 @@ import {
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
+  // SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar';
@@ -34,7 +33,7 @@ const data = {
   },
   teams: [
     {
-      name: 'Acme Inc',
+      name: 'Kevin Iansyah',
       logo: GalleryVerticalEnd,
       plan: 'Enterprise',
     },
@@ -66,7 +65,7 @@ const data = {
           url: '/dashboard/blogs',
         },
         {
-          title: 'Starred',
+          title: 'Skills',
           url: '#',
         },
       ],
@@ -108,11 +107,11 @@ const data = {
     </SidebarHeader>
     <SidebarContent>
       <NavMain :items="data.navMain" />
-      <NavProjects :projects="data.projects" />
+      <!-- <NavProjects :projects="data.projects" /> -->
     </SidebarContent>
-    <SidebarFooter>
+    <!-- <SidebarFooter>
       <NavUser :user="data.user" />
-    </SidebarFooter>
+    </SidebarFooter> -->
     <SidebarRail />
   </Sidebar>
 </template>

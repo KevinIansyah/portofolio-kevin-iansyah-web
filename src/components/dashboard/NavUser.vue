@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Bell, ChevronsUpDown, LogOut, Settings2 } from 'lucide-vue-next';
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   DropdownMenu,
@@ -17,6 +15,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar';
+import { Bell, ChevronsUpDown, LogOut, Settings2 } from 'lucide-vue-next';
 import { RouterLink } from 'vue-router';
 
 defineProps<{

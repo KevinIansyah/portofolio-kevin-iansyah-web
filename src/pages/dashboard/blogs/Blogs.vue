@@ -18,12 +18,11 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 <template>
   <DashboardLayout :breadcrumbs="breadcrumbs">
-    <div class="flex flex-1 flex-col gap-4 p-4 pt-0">
+    <div class="flex flex-1 flex-col gap-6 p-4 lg:p-6">
       <Heading
         title="Blog Management"
         description="View, create, and manage your blog posts"
       />
-
       <DataTableBlog />
     </div>
   </DashboardLayout>

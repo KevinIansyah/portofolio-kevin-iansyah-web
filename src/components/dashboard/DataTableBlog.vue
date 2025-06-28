@@ -124,13 +124,14 @@ const columns: ColumnDef<Blog>[] = [
         Badge,
         {
           variant: 'outline',
-          class: 'flex gap-2 px-1.5 [&_svg]:size-3 font-normal',
+          class:
+            'text-muted-foreground flex gap-2 px-1.5 [&_svg]:size-3 font-normal',
         },
         {
           default: () => [
             row.original.status === 'published' &&
               h(CheckCircle2Icon, {
-                class: 'text-green-500 dark:text-green-400',
+                class: 'text-emerald-600 dark:text-emerald-500',
               }),
             row.original.status === 'archived' &&
               h(ArchiveIcon, {
@@ -279,8 +280,8 @@ const table = useVueTable({
 </script>
 
 <template>
-  <div class="w-full">
-    <div class="flex items-center py-4">
+  <div class="w-full space-y-4">
+    <div class="flex items-center flex-col md:flex-row gap-4">
       <Input
         class="max-w-sm shadow-none leading-none"
         placeholder="Filter title..."
@@ -289,17 +290,17 @@ const table = useVueTable({
       />
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
-          <!-- <Button variant="outline" class="ml-auto shadow-none font-medium">
-            Columns <ChevronDown class="ml-2 h-4 w-4" />
-          </Button> -->
-          <Button variant="outline" class="ml-auto shadow-none">
+          <Button
+            variant="outline"
+            class="ml-auto shadow-none w-full md:w-auto"
+          >
             <ColumnsIcon />
             <span class="hidden lg:inline">Customize Columns</span>
             <span class="lg:hidden">Columns</span>
             <ChevronDown />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
+        <DropdownMenuContent>
           <DropdownMenuCheckboxItem
             v-for="column in table
               .getAllColumns()
@@ -362,7 +363,7 @@ const table = useVueTable({
       </Table>
     </div>
 
-    <div class="flex items-center justify-end space-x-2 py-4">
+    <div class="flex items-center justify-end space-x-4">
       <div class="flex-1 text-sm text-muted-foreground">
         {{ table.getFilteredSelectedRowModel().rows.length }} of
         {{ table.getFilteredRowModel().rows.length }} row(s) selected.

@@ -12,6 +12,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 
+import ColorMode from '@/components/home/ColorMode.vue';
 import type { NavItem } from '@/types';
 import { useColorMode } from '@vueuse/core';
 import {
@@ -25,11 +26,10 @@ import {
 } from 'lucide-vue-next';
 import { onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import ColorMode from '@/components/home/ColorMode.vue';
 
 const isScrolled = ref(false);
 
-const mode = useColorMode({ disableTransition: true });
+const mode = useColorMode();
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > window.innerHeight;

@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import heroImage from '@/assets/hero.gif';
 import { Button } from '@/components/ui/button';
 </script>
 
 <template>
   <section
     class="w-full h-screen bg-cover bg-center flex items-center justify-center px-4 relative"
-    style="background-image: url('/src/assets/hero.gif')"
+    :style="{ backgroundImage: `url(${heroImage})` }"
   >
     <div
       class="backdrop-blur-sm bg-black/20 rounded-xl p-8 max-w-xl text-center space-y-4"

@@ -12,6 +12,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 
+import Logo from '@/assets/logo.svg';
 import ColorMode from '@/components/home/ColorMode.vue';
 import type { NavItem } from '@/types';
 import { useColorMode } from '@vueuse/core';
@@ -92,7 +93,7 @@ const mainNavItems: NavItem[] = [
                     : 'text-white',
                 ]"
               >
-                <Menu class="h-5 w-5" />
+                <Menu class="size-6" />
                 <span class="sr-only">Navigation Button</span>
               </Button>
             </SheetTrigger>
@@ -143,7 +144,7 @@ const mainNavItems: NavItem[] = [
         </div>
 
         <router-link class="flex items-center" to="/">
-          <img src="/src/assets/logo.svg" alt="Logo" class="w-8 h-8" />
+          <img :src="Logo" alt="Logo" class="w-8 h-8" />
         </router-link>
 
         <div class="ml-auto flex items-center space-x-2">

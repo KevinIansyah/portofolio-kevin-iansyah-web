@@ -18,7 +18,7 @@ const isDark = computed(() => mode.value === 'dark');
       />
 
       <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-6"
+        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-6"
       >
         <div
           v-for="tech in techIcons"

@@ -32,7 +32,7 @@ defineProps<{
           class="flex items-center justify-center w-8 h-8 -mr-2 text-muted-foreground"
         >
           <Bell class="size-4.5" />
-          <span class="sr-only">Toggle theme</span>
+          <span class="sr-only">Toggle notification</span>
         </Button> -->
         <ColorMode />
         <AppAvatar :user="user" />

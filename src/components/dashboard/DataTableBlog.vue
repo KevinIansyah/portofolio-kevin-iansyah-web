@@ -319,9 +319,9 @@ const table = useVueTable({
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-    <div class="rounded-md border">
+    <div class="rounded-md overflow-hidden">
       <Table>
-        <TableHeader className="bg-muted">
+        <TableHeader className="bg-primary text-white border-primary">
           <TableRow
             v-for="headerGroup in table.getHeaderGroups()"
             :key="headerGroup.id"
@@ -335,7 +335,7 @@ const table = useVueTable({
             </TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="border">
           <template v-if="table.getRowModel().rows?.length">
             <template v-for="row in table.getRowModel().rows" :key="row.id">
               <TableRow :data-state="row.getIsSelected() && 'selected'">

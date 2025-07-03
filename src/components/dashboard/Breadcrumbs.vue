@@ -22,7 +22,7 @@ const props = defineProps<{
             :href="item.href"
             :class="
               index === props.breadcrumbs.length - 1
-                ? 'text-emerald-500 hover:text-emerald-400 font-medium'
+                ? 'text-primary  font-medium'
                 : ''
             "
           >

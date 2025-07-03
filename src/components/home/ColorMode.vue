@@ -21,8 +21,7 @@ const mode = useColorMode({
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
       <Button
-        variant="ghost"
-        class="relative flex items-center justify-center w-9 h-9"
+        class="relative flex items-center justify-center w-9 h-9 ml-5"
       >
         <Moon
           class="absolute size-4.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 dar"

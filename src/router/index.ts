@@ -3,9 +3,15 @@ import BlogInsert from '@/pages/dashboard/blogs/BlogInsert.vue';
 import Blogs from '@/pages/dashboard/blogs/Blogs.vue';
 import Dashboard from '@/pages/dashboard/Dashboard.vue';
 import Profile from '@/pages/dashboard/settings/Profile.vue';
+import Home from '@/pages/home/Home.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
   {
     path: '/dashboard',
     name: 'Dashboard',

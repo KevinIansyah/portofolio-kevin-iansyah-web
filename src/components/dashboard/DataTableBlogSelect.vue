@@ -36,7 +36,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { valueUpdater } from '../ui/table/utils';
+import { valueUpdater } from '@/components/ui/table/utils';
 
 export interface Payment {
   id: string;

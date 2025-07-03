@@ -4,5 +4,7 @@ import AppHeader from '@/components/home/AppHeader.vue';
 
 <template>
   <AppHeader />
-  <slot />
+  <div class="-mt-[64px]">
+    <slot />
+  </div>
 </template>

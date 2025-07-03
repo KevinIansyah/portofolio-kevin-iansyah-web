@@ -1,7 +1,4 @@
 <script setup lang="ts">
-// import AppLogo from '@/components/AppLogo.vue';
-// import AppLogoIcon from '@/components/AppLogoIcon.vue';
-// import Breadcrumbs from '@/components/Breadcrumbs.vue';
 import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
@@ -11,12 +8,12 @@ import {
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 
 import type { NavItem } from '@/types';
+import { useColorMode } from '@vueuse/core';
 import {
   Briefcase,
   FolderKanban,
@@ -26,8 +23,25 @@ import {
   Phone,
   User,
 } from 'lucide-vue-next';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import ColorMode from './ColorMode.vue';
+import ColorMode from '@/components/home/ColorMode.vue';
+
+const isScrolled = ref(false);
+
+const mode = useColorMode({ disableTransition: true });
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > window.innerHeight;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
 const route = useRoute();
 
@@ -39,33 +53,64 @@ const activeItemStyles = (url: string) =>
     : '';
 
 const mainNavItems: NavItem[] = [
-  { title: 'About Me', href: '#', icon: User },
-  { title: 'Skills', href: '#', icon: ListCheck },
-  { title: 'Projects', href: '#', icon: FolderKanban },
-  { title: 'Experience', href: '#', icon: Briefcase },
-  { title: 'Contact', href: '#', icon: Phone },
+  { title: 'Tentang Saya', href: '#', icon: User },
+  { title: 'Kemampuan', href: '#', icon: ListCheck },
+  { title: 'Proyek', href: '#', icon: FolderKanban },
+  { title: 'Pengalaman', href: '#', icon: Briefcase },
   { title: 'Blog', href: '#', icon: Newspaper },
+  { title: 'Kontak', href: '#', icon: Phone },
 ];
 </script>
 
 <template>
-  <div class="fixed top-0 w-full z-50 bg-background backdrop-blur-md shadow-xs">
-    <div class="border-b border-sidebar-border/80">
+  <div
+    :class="[
+      'sticky top-0 w-full z-50 backdrop-blur-sm shadow-xs transition-colors duration-300',
+      mode === 'dark'
+        ? 'bg-black/20'
+        : isScrolled
+        ? 'bg-white/90'
+        : 'bg-black/20',
+    ]"
+  >
+    <div>
       <div
         class="mx-auto flex h-16 items-center px-4 md:max-w-7xl lg:max-w-6xl"
       >
         <div class="lg:hidden">
           <Sheet>
             <SheetTrigger as-child>
-              <Button variant="ghost" size="icon" class="mr-2 h-9 w-9">
+              <Button
+                variant="ghost"
+                size="icon"
+                :class="[
+                  'mr-2 h-9 w-9',
+                  mode === 'dark'
+                    ? 'text-white'
+                    : isScrolled
+                    ? 'text-foreground'
+                    : 'text-white',
+                ]"
+              >
                 <Menu class="h-5 w-5" />
+                <span class="sr-only">Navigation Button</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" class="w-[300px] p-6">
+            <SheetContent
+              side="left"
+              :class="[
+                'w-[300px] p-6 backdrop-blur-md shadow-xs border-none',
+                mode === 'dark'
+                  ? 'bg-black/20'
+                  : isScrolled
+                  ? 'bg-white/90'
+                  : 'bg-black/20',
+              ]"
+            >
               <SheetTitle class="sr-only">Navigation Menu</SheetTitle>
-              <SheetHeader class="flex justify-start text-left">
-                <h1 class="text-lg font-semibold text-center">Kevin Iansyah</h1>
-              </SheetHeader>
+              <!-- <SheetHeader class="flex justify-start text-left">
+                <h2 class="text-lg font-semibold text-center">Kevin Iansyah</h2>
+              </SheetHeader> -->
               <div
                 class="flex h-full flex-1 flex-col justify-between space-y-4"
               >
@@ -74,8 +119,15 @@ const mainNavItems: NavItem[] = [
                     v-for="item in mainNavItems"
                     :key="item.title"
                     :to="item.href"
-                    class="flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent"
-                    :class="activeItemStyles(item.href)"
+                    :class="[
+                      'flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium',
+                      mode === 'dark'
+                        ? 'text-white'
+                        : isScrolled
+                        ? 'text-foreground'
+                        : 'text-white',
+                      activeItemStyles(item.href),
+                    ]"
                   >
                     <component
                       v-if="item.icon"
@@ -90,8 +142,8 @@ const mainNavItems: NavItem[] = [
           </Sheet>
         </div>
 
-        <router-link class="flex items-center gap-x-2" to="/">
-          <h1 class="text-lg font-semibold">Kevin Iansyah</h1>
+        <router-link class="flex items-center" to="/">
+          <img src="/src/assets/logo.svg" alt="Logo" class="w-8 h-8" />
         </router-link>
 
         <div class="ml-auto flex items-center space-x-2">
@@ -106,10 +158,17 @@ const mainNavItems: NavItem[] = [
                   >
                     <router-link
                       :to="item.href"
-                      class="flex items-center gap-x-2 px-3 py-2 text-sm font-medium hover:bg-primary hover:text-white rounded-md transition-all duration-75"
-                      :class="activeItemStyles(item.href)"
+                      :class="[
+                        'flex items-center gap-x-2 px-3 py-2 text-sm font-semibold hover:bg-primary hover:text-white rounded-md transition-all duration-300',
+                        mode === 'dark'
+                          ? 'text-white'
+                          : isScrolled
+                          ? 'text-foreground'
+                          : 'text-white',
+                        activeItemStyles(item.href),
+                      ]"
                     >
-                      <component :is="item.icon" class="h-4 w-4" />
+                      <!-- <component :is="item.icon" class="h-4 w-4" /> -->
                       <span>{{ item.title }}</span>
                     </router-link>
                     <div

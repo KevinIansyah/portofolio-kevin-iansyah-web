@@ -15,6 +15,7 @@ import {
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar';
 import { ChevronRight, type LucideIcon } from 'lucide-vue-next';
+import { RouterLink } from 'vue-router';
 
 defineProps<{
   items: {
@@ -70,10 +71,10 @@ defineProps<{
 
         <SidebarMenuItem v-else>
           <SidebarMenuButton :tooltip="item.title" as-child>
-            <a :href="item.url" class="flex w-full items-center gap-2">
+            <router-link :to="item.url" class="flex w-full items-center gap-2">
               <component :is="item.icon" v-if="item.icon" />
               <span>{{ item.title }}</span>
-            </a>
+            </router-link>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </template>

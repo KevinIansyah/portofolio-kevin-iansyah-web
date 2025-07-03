@@ -70,25 +70,6 @@ const data = {
         },
       ],
     },
-    // {
-    //   title: 'Settings',
-    //   url: '#',
-    //   icon: Settings2,
-    //   items: [
-    //     {
-    //       title: 'Profile',
-    //       url: '/dashboard/settings/profile',
-    //     },
-    //     {
-    //       title: 'Password',
-    //       url: '#',
-    //     },
-    //     {
-    //       title: 'Appearance',
-    //       url: '#',
-    //     },
-    //   ],
-    // },
   ],
   projects: [
     {

@@ -8,6 +8,7 @@ import {
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -54,12 +55,12 @@ const activeItemStyles = (url: string) =>
     : '';
 
 const mainNavItems: NavItem[] = [
-  { title: 'Tentang Saya', emoticon: '👨‍💼', href: '#', icon: User },
-  { title: 'Kemampuan', emoticon: '🧠', href: '#', icon: ListCheck },
-  { title: 'Proyek', href: '#', emoticon: '📁', icon: FolderKanban },
-  { title: 'Pengalaman', href: '#', emoticon: '💼', icon: Briefcase },
-  { title: 'Blog', href: '#', emoticon: '📰', icon: Newspaper },
-  { title: 'Kontak', href: '#', emoticon: '📞', icon: Phone },
+  { title: 'Tentang Saya', href: '#tentang-saya', emoticon: '👨‍💼', icon: User },
+  { title: 'Kemampuan', href: '#kemampuan', emoticon: '🧠', icon: ListCheck },
+  { title: 'Proyek', href: '#proyek', emoticon: '📁', icon: FolderKanban },
+  { title: 'Pengalaman', href: '#pengalaman', emoticon: '💼', icon: Briefcase },
+  { title: 'Blog', href: '#blog', emoticon: '📰', icon: Newspaper },
+  { title: 'Kontak', href: '#kontak', emoticon: '📞', icon: Phone },
 ];
 </script>
 
@@ -95,7 +96,7 @@ const mainNavItems: NavItem[] = [
               >
                 <!-- <Menu class="size-6" /> -->
                 <span class="text-xl">🍔</span>
-                <span class="sr-only">Navigation Button</span>
+                <span class="sr-only">Tombol buka navigasi</span>
               </Button>
             </SheetTrigger>
             <SheetContent
@@ -110,6 +111,9 @@ const mainNavItems: NavItem[] = [
               ]"
             >
               <SheetTitle class="sr-only">Navigation Menu</SheetTitle>
+              <SheetDescription class="sr-only">
+                Daftar tautan navigasi utama pada situs web.
+              </SheetDescription>
               <SheetHeader class="flex justify-center items-center">
                 <img :src="Logo" alt="Logo" class="w-8 h-8" />
               </SheetHeader>
@@ -117,7 +121,7 @@ const mainNavItems: NavItem[] = [
                 class="flex h-full flex-1 flex-col justify-between space-y-4"
               >
                 <nav class="space-y-1">
-                  <router-link
+                  <!-- <router-link
                     v-for="item in mainNavItems"
                     :key="item.title"
                     :to="item.href"
@@ -132,9 +136,26 @@ const mainNavItems: NavItem[] = [
                     ]"
                   >
                     <span>{{ item.emoticon }}</span>
-                    <!-- <component :is="item.icon" class="h-5 w-5" /> -->
+                    <component :is="item.icon" class="h-5 w-5" />
                     {{ item.title }}
-                  </router-link>
+                  </router-link> -->
+                  <a
+                    v-for="item in mainNavItems"
+                    :key="item.title"
+                    :href="item.href"
+                    :class="[
+                      'flex items-center gap-2 rounded-lg py-3 text-sm font-medium',
+                      mode === 'dark'
+                        ? 'text-white'
+                        : isScrolled
+                        ? 'text-foreground'
+                        : 'text-white',
+                      activeItemStyles(item.href),
+                    ]"
+                  >
+                    <span>{{ item.emoticon }}</span>
+                    {{ item.title }}
+                  </a>
                 </nav>
               </div>
             </SheetContent>
@@ -155,7 +176,7 @@ const mainNavItems: NavItem[] = [
                     :key="index"
                     class="relative flex h-full items-center"
                   >
-                    <router-link
+                    <!-- <router-link
                       :to="item.href"
                       :class="[
                         'flex items-center gap-x-2 px-3 py-2 text-sm font-semibold hover:bg-primary hover:text-white rounded-md transition-all duration-300',
@@ -168,9 +189,23 @@ const mainNavItems: NavItem[] = [
                       ]"
                     >
                       <span>{{ item.emoticon }}</span>
-                      <!-- <component :is="item.icon" class="h-4 w-4" /> -->
+                      <component :is="item.icon" class="h-4 w-4" />
                       <span>{{ item.title }}</span>
-                    </router-link>
+                    </router-link> -->
+                    <a
+                      :href="item.href"
+                      :class="[
+                        'flex items-center gap-x-2 px-3 py-2 text-sm font-semibold hover:bg-primary hover:text-white rounded-md transition-all duration-300',
+                        mode === 'dark'
+                          ? 'text-white'
+                          : isScrolled
+                          ? 'text-foreground'
+                          : 'text-white',
+                      ]"
+                    >
+                      <span>{{ item.emoticon }}</span>
+                      <span>{{ item.title }}</span>
+                    </a>
                     <div
                       v-if="isCurrentRoute(item.href)"
                       class="absolute bottom-0 left-0 h-0.5 w-full translate-y-px bg-black dark:bg-white"

@@ -10,10 +10,10 @@ const isDark = computed(() => mode.value === 'dark');
 </script>
 
 <template>
-  <section class="w-full h-auto">
-    <div class="my-15 space-y-8">
+  <section class="mx-auto px-4 md:max-w-7xl lg:max-w-6xl">
+    <div class=" space-y-10">
       <Heading
-        title="Kemampuan Teknis"
+        title="KEMAMPUAN TEKNIS"
         description="Bahasa pemrograman, framework, dan tools yang saya gunakan dalam pengembangan"
       />
 

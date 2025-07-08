@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import About from '@/components/home/About.vue';
 import Hero from '@/components/home/Hero.vue';
 import Projects from '@/components/home/Projects.vue';
 import Skills from '@/components/home/Skills.vue';
@@ -8,13 +9,14 @@ import HomeLayout from '@/layouts/HomeLayout.vue';
 <template>
   <HomeLayout>
     <Hero />
-    <div class="mx-auto px-4 md:max-w-7xl lg:max-w-6xl">
+    <div class="bg-background" id="tentang-saya">
+      <About />
+    </div>
+    <div class="bg-muted py-15" id="kemampuan">
       <Skills />
     </div>
-    <div class="bg-muted">
-      <div class="mx-auto px-4 md:max-w-7xl lg:max-w-6xl">
-        <Projects />
-      </div>
+    <div class="bg-background" id="proyek">
+      <Projects />
     </div>
   </HomeLayout>
 </template>

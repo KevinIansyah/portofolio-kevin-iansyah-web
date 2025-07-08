@@ -8,6 +8,7 @@ import {
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
@@ -20,7 +21,6 @@ import {
   Briefcase,
   FolderKanban,
   ListCheck,
-  Menu,
   Newspaper,
   Phone,
   User,
@@ -54,12 +54,12 @@ const activeItemStyles = (url: string) =>
     : '';
 
 const mainNavItems: NavItem[] = [
-  { title: 'Tentang Saya', href: '#', icon: User },
-  { title: 'Kemampuan', href: '#', icon: ListCheck },
-  { title: 'Proyek', href: '#', icon: FolderKanban },
-  { title: 'Pengalaman', href: '#', icon: Briefcase },
-  { title: 'Blog', href: '#', icon: Newspaper },
-  { title: 'Kontak', href: '#', icon: Phone },
+  { title: 'Tentang Saya', emoticon: '👨‍💼', href: '#', icon: User },
+  { title: 'Kemampuan', emoticon: '🧠', href: '#', icon: ListCheck },
+  { title: 'Proyek', href: '#', emoticon: '📁', icon: FolderKanban },
+  { title: 'Pengalaman', href: '#', emoticon: '💼', icon: Briefcase },
+  { title: 'Blog', href: '#', emoticon: '📰', icon: Newspaper },
+  { title: 'Kontak', href: '#', emoticon: '📞', icon: Phone },
 ];
 </script>
 
@@ -93,14 +93,15 @@ const mainNavItems: NavItem[] = [
                     : 'text-white',
                 ]"
               >
-                <Menu class="size-6" />
+                <!-- <Menu class="size-6" /> -->
+                <span class="text-xl">🍔</span>
                 <span class="sr-only">Navigation Button</span>
               </Button>
             </SheetTrigger>
             <SheetContent
-              side="left"
+              side="top"
               :class="[
-                'w-[300px] p-6 backdrop-blur-md shadow-xs border-none',
+                'w-full h-auto p-6 backdrop-blur-md',
                 mode === 'dark'
                   ? 'bg-black/20'
                   : isScrolled
@@ -109,19 +110,19 @@ const mainNavItems: NavItem[] = [
               ]"
             >
               <SheetTitle class="sr-only">Navigation Menu</SheetTitle>
-              <!-- <SheetHeader class="flex justify-start text-left">
-                <h2 class="text-lg font-semibold text-center">Kevin Iansyah</h2>
-              </SheetHeader> -->
+              <SheetHeader class="flex justify-center items-center">
+                <img :src="Logo" alt="Logo" class="w-8 h-8" />
+              </SheetHeader>
               <div
                 class="flex h-full flex-1 flex-col justify-between space-y-4"
               >
-                <nav class="-mx-3 space-y-1">
+                <nav class="space-y-1">
                   <router-link
                     v-for="item in mainNavItems"
                     :key="item.title"
                     :to="item.href"
                     :class="[
-                      'flex items-center gap-x-3 rounded-lg px-3 py-2 text-sm font-medium',
+                      'flex items-center gap-2 rounded-lg py-3 text-sm font-medium',
                       mode === 'dark'
                         ? 'text-white'
                         : isScrolled
@@ -130,11 +131,8 @@ const mainNavItems: NavItem[] = [
                       activeItemStyles(item.href),
                     ]"
                   >
-                    <component
-                      v-if="item.icon"
-                      :is="item.icon"
-                      class="h-5 w-5"
-                    />
+                    <span>{{ item.emoticon }}</span>
+                    <!-- <component :is="item.icon" class="h-5 w-5" /> -->
                     {{ item.title }}
                   </router-link>
                 </nav>
@@ -169,6 +167,7 @@ const mainNavItems: NavItem[] = [
                         activeItemStyles(item.href),
                       ]"
                     >
+                      <span>{{ item.emoticon }}</span>
                       <!-- <component :is="item.icon" class="h-4 w-4" /> -->
                       <span>{{ item.title }}</span>
                     </router-link>

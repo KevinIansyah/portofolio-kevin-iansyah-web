@@ -14,23 +14,26 @@ const isDark = computed(() => mode.value === 'dark');
     <div class="my-15 space-y-8">
       <Heading
         title="Kemampuan Teknis"
-        description="Bahasa pemrograman, framework, dan tools yang saya gunakan dalam pengembangan."
+        description="Bahasa pemrograman, framework, dan tools yang saya gunakan dalam pengembangan"
       />
 
       <div
-        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-6"
+        class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 gap-6"
       >
         <div
-          v-for="tech in techIcons"
+          v-for="(tech, index) in techIcons"
           :key="tech.id"
-          class="flex flex-col items-center justify-center space-y-2"
+          :class="[
+            'flex flex-col items-center justify-center space-y-2',
+            index === techIcons.length - 1 ? 'hidden sm:flex' : '',
+          ]"
         >
           <img
             :src="isDark ? tech.dark : tech.light"
             :alt="tech.name"
             class="h-10 w-10 object-contain transition-transform duration-200 hover:scale-110"
           />
-          <p class="text-sm text-center text-muted-foreground">
+          <p class="text-sm text-center">
             {{ tech.name }}
           </p>
         </div>

@@ -9,36 +9,35 @@ import { Button } from '@/components/ui/button';
     :style="{ backgroundImage: `url(${heroImage})` }"
   >
     <div
-      class="backdrop-blur-sm bg-black/20 rounded-xl p-8 max-w-xl text-center space-y-4"
+      class="backdrop-blur-sm bg-black/20 rounded-md p-4 md:p-8 max-w-xl text-center space-y-4 shadow-xs"
     >
-      <h1 class="text-white text-xl md:text-2xl font-medium mb-2">
-        Halo, Saya
+      <h1 class="text-white text-xl md:text-xl font-medium mb-2">
+        Haii 👋, Saya
       </h1>
       <h2
         class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent"
         style="
           background-image: linear-gradient(
             to right,
-            var(--color-destructive),
             var(--color-chart-1),
             var(--color-chart-5)
           );
         "
       >
-        Kevin Iansyah
+        KEVIN IANSYAH
       </h2>
-      <p class="text-white text-sm md:text-base">
+      <p class="text-white text-base">
         Seorang Fullstack Web Developer dengan keahlian dalam pengembangan
         aplikasi web menggunakan teknologi modern seperti Vue, React, Tailwind
         CSS, Laravel, dan NestJS.
       </p>
-      <div class="flex flex-wrap justify-center gap-4 pt-4">
-        <Button as-child>
-          <a href="#" class="font-semibold">Lihat Proyek</a>
+      <div class="flex justify-center mx-auto gap-4 pt-4 w-full md:w-[60%]">
+        <Button as-child variant="outline" class="flex-1">
+          <a href="#"><span class="mr-1">📁</span>Lihat Proyek </a>
         </Button>
 
-        <Button as-child variant="outline">
-          <a href="#" class="font-semibold">Unduh Resume</a>
+        <Button as-child variant="outline" class="flex-1">
+          <a href="#"><span class="mr-1">📝</span>Unduh Resume </a>
         </Button>
       </div>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,8 +7,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { useColorMode } from '@vueuse/core';
+} from "@/components/ui/dropdown-menu";
+import { useColorMode } from "@vueuse/core";
 
 const mode = useColorMode({
   disableTransition: true,
@@ -18,16 +18,9 @@ const mode = useColorMode({
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button class="relative flex items-center justify-center w-9 h-9 ml-5">
-        <span
-          class="absolute rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-        >
-          🌙
-        </span>
-        <span
-          class="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-          >☀️</span
-        >
+      <Button class="relative flex items-center justify-center w-9 h-9 ml-5 rounded-full">
+        <span class="absolute rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"> 🌙 </span>
+        <span class="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100">☀️</span>
         <!-- <Moon
           class="absolute size-4.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
         />

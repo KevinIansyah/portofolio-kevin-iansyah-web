@@ -13,8 +13,8 @@ const breadcrumbs: BreadcrumbItem[] = [
     href: "/dashboard/blogs",
   },
   {
-    title: "Edit",
-    href: "/dashboard/blogs/edit",
+    title: "Create",
+    href: "/dashboard/blogs/create",
   },
 ];
 </script>
@@ -22,7 +22,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 <template>
   <DashboardLayout :breadcrumbs="breadcrumbs">
     <div class="flex flex-1 flex-col gap-6 p-4 lg:p-6">
-      <Heading title="Edit Blog" description="Edit your blog post" />
+      <Heading title="Create Blog" description="Create your blog post" />
       <div class="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
     </div>
   </DashboardLayout>

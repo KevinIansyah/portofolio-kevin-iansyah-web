@@ -65,7 +65,7 @@ const rightColumn = [
 </script>
 
 <template>
-  <section class="mx-auto px-4 md:max-w-7xl lg:max-w-6xl">
+  <section class="mx-auto px-4 md:max-w-7xl lg:max-w-6xl overflow-x-hidden">
     <div class="py-18 space-y-10">
       <Heading
         title="Tentang Saya"
@@ -76,45 +76,51 @@ const rightColumn = [
       <div class="rounded-md flex flex-col md:flex-row gap-4 lg:gap-6">
         <div class="flex-1 space-y-4 lg:space-y-6">
           <div v-for="item in leftColumn" :key="item.title">
-            <Card :class="cn('w-full', $attrs.class ?? '')">
-              <div class="pt-4 px-4 lg:pt-6 lg:px-6 mb-2">
-                <span class="text-2xl">{{ item.icon }}</span>
-              </div>
-              <CardHeader>
-                <CardTitle
-                  class="tracking-tight bg-clip-text text-transparent font-bold"
-                  style="background-image: linear-gradient(to right, var(--color-chart-1), var(--color-chart-5))"
-                >
-                  {{ item.title }}
-                </CardTitle>
-                <CardDescription class="sr-only">Tentang saya bagian {{ item.title }}</CardDescription>
-              </CardHeader>
-              <CardContent class="px-4 pb-4 lg:px-6 lg:pb-6">
-                <p v-html="item.description" class="text-sm text-foreground"></p>
-              </CardContent>
-            </Card>
+            <div v-motion :delay="300" :initial="{ opacity: 0, x: -60 }" :visible="{ opacity: 1, x: 0 }">
+              <Card :class="cn('w-full', $attrs.class ?? '')">
+                <CardHeader>
+                  <div class="flex items-center gap-4 pt-4 lg:pt-6">
+                    <span class="text-2xl">{{ item.icon }}</span>
+                    <CardTitle
+                      class="tracking-tight bg-clip-text text-transparent font-bold"
+                      style="background-image: linear-gradient(to right, var(--color-chart-1), var(--color-chart-5))"
+                    >
+                      {{ item.title }}
+                    </CardTitle>
+                  </div>
+
+                  <CardDescription class="sr-only">Tentang saya bagian {{ item.title }}</CardDescription>
+                </CardHeader>
+                <CardContent class="px-4 pb-4 lg:px-6 lg:pb-6">
+                  <p v-html="item.description" class="text-sm text-foreground"></p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
 
         <div class="flex-1 space-y-4 lg:space-y-6">
           <div v-for="item in rightColumn" :key="item.title">
-            <Card :class="cn('w-full', $attrs.class ?? '')">
-              <div class="pt-4 px-4 lg:pt-6 lg:px-6 mb-2">
-                <span class="text-2xl">{{ item.icon }}</span>
-              </div>
-              <CardHeader>
-                <CardTitle
-                  class="tracking-tight bg-clip-text text-transparent font-bold"
-                  style="background-image: linear-gradient(to right, var(--color-chart-1), var(--color-chart-5))"
-                >
-                  {{ item.title }}
-                </CardTitle>
-                <CardDescription class="sr-only">Tentang saya bagian {{ item.title }}</CardDescription>
-              </CardHeader>
-              <CardContent class="px-4 pb-4 lg:px-6 lg:pb-6">
-                <p v-html="item.description" class="text-sm text-foreground"></p>
-              </CardContent>
-            </Card>
+            <div v-motion :delay="300" :initial="{ opacity: 0, x: 60 }" :visible="{ opacity: 1, x: 0 }">
+              <Card :class="cn('w-full', $attrs.class ?? '')">
+                <CardHeader>
+                  <div class="flex items-center gap-4 pt-4 lg:pt-6">
+                    <span class="text-2xl">{{ item.icon }}</span>
+                    <CardTitle
+                      class="tracking-tight bg-clip-text text-transparent font-bold"
+                      style="background-image: linear-gradient(to right, var(--color-chart-1), var(--color-chart-5))"
+                    >
+                      {{ item.title }}
+                    </CardTitle>
+                  </div>
+
+                  <CardDescription class="sr-only">Tentang saya bagian {{ item.title }}</CardDescription>
+                </CardHeader>
+                <CardContent class="px-4 pb-4 lg:px-6 lg:pb-6">
+                  <p v-html="item.description" class="text-sm text-foreground"></p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

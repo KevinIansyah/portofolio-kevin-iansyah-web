@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import About from "@/components/home/About.vue";
+import Experiences from "@/components/home/Experiences.vue";
 import Hero from "@/components/home/Hero.vue";
 import Projects from "@/components/home/Projects.vue";
 import Technologies from "@/components/home/Technologies.vue";
@@ -18,8 +19,8 @@ import HomeLayout from "@/layouts/HomeLayout.vue";
     <div class="bg-background" id="proyek">
       <Projects />
     </div>
-    <!-- <div class="bg-background" id="pengalaman">
+    <div class="bg-background" id="pengalaman">
       <Experiences />
-    </div> -->
+    </div>
   </HomeLayout>
 </template>

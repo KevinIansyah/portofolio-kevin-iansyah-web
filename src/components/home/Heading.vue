@@ -11,7 +11,7 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div class="text-center">
+  <div v-motion-slide-visible-top :delay="300" class="text-center">
     <h3
       class="text-base font-bold tracking-tight bg-clip-text text-transparent"
       style="background-image: linear-gradient(to right, var(--color-chart-1), var(--color-chart-5))"

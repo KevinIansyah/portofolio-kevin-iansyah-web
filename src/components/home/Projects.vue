@@ -2,7 +2,6 @@
 import BannerProject1 from "@/assets/projects/banner-project-1.png";
 import BannerProject2 from "@/assets/projects/banner-project-2.png";
 import BannerProject3 from "@/assets/projects/banner-project-3.png";
-import BannerProject4 from "@/assets/projects/banner-project-4.png";
 import FancyBox from "@/components/base/FancyBox.vue";
 import Heading from "@/components/home/Heading.vue";
 import { Button } from "@/components/ui/button";
@@ -43,14 +42,14 @@ const projects = [
     image: BannerProject3,
     link: "#",
   },
-  {
-    id: 4,
-    title: "CSIRT PT SIER",
-    description:
-      "Platform internal PT Surabaya Industrial Estate Rungkut untuk penyampaian informasi dan edukasi terkait keamanan siber, dilengkapi fitur pelaporan insiden untuk meningkatkan respons dan mitigasi ancaman.",
-    image: BannerProject4,
-    link: "#",
-  },
+  // {
+  //   id: 4,
+  //   title: "CSIRT PT SIER",
+  //   description:
+  //     "Platform internal PT Surabaya Industrial Estate Rungkut untuk penyampaian informasi dan edukasi terkait keamanan siber, dilengkapi fitur pelaporan insiden untuk meningkatkan respons dan mitigasi ancaman.",
+  //   image: BannerProject4,
+  //   link: "#",
+  // },
   // {
   //   id: 5,
   //   title: "Clarities Laboratorium Hukum",
@@ -88,7 +87,13 @@ const visibleProjects = computed(() => {
 
         <FancyBox>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-            <Card v-for="project in visibleProjects" :key="project.id" :class="cn('w-full gap-6', $attrs.class ?? '')">
+            <Card
+              v-motion-slide-visible-bottom
+              :delay="300"
+              v-for="project in visibleProjects"
+              :key="project.id"
+              :class="cn('w-full gap-6', $attrs.class ?? '')"
+            >
               <CardContent class="px-2 pt-2">
                 <div class="w-full h-[200px] overflow-hidden rounded-md">
                   <a data-fancybox="projects" :href="project.image" :data-caption="project.title">

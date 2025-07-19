@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import AppAvatar from '@/components/dashboard/AppAvatar.vue';
-import Breadcrumbs from '@/components/dashboard/Breadcrumbs.vue';
-import ColorMode from '@/components/dashboard/ColorMode.vue';
-import { Separator } from '@/components/ui/separator';
-import { SidebarTrigger } from '@/components/ui/sidebar';
-import type { BreadcrumbItem } from '@/types';
+import AppAvatar from "@/components/dashboard/AppAvatar.vue";
+import Breadcrumbs from "@/components/dashboard/Breadcrumbs.vue";
+import ColorMode from "@/components/dashboard/ColorMode.vue";
+import { Separator } from "@/components/ui/separator";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import type { BreadcrumbItem } from "@/types";
 
 defineProps<{
   user: {
@@ -18,7 +18,7 @@ defineProps<{
 
 <template>
   <header
-    class="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b-1"
+    class="sticky top-0 z-50 bg-background flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b-1"
   >
     <div class="flex items-center justify-between gap-2 px-4 lg:px-6 w-full">
       <div class="flex items-center gap-2">

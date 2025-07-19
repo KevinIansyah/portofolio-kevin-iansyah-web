@@ -54,6 +54,7 @@
   --shadow-2xl: 2px 2px 4px 0px hsl(255 86% 66% / 0.5);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
+  --contribution: oklch(92.8% 0.006 264.531);
 }
 
 .dark {
@@ -101,6 +102,7 @@
   --shadow-lg: 2px 2px 4px 0px hsl(255 86% 66% / 0.2), 2px 4px 6px -1px hsl(255 86% 66% / 0.2);
   --shadow-xl: 2px 2px 4px 0px hsl(255 86% 66% / 0.2), 2px 8px 10px -1px hsl(255 86% 66% / 0.2);
   --shadow-2xl: 2px 2px 4px 0px hsl(255 86% 66% / 0.5);
+  --contribution: oklch(0.2573 0.0861 281.2883);
 }
 
 @theme inline {
@@ -136,6 +138,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-contribution: var(--contribution);
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);

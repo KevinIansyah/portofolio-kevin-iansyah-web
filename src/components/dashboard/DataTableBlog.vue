@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import type {
-  ColumnDef,
-  ColumnFiltersState,
-  ExpandedState,
-  SortingState,
-  VisibilityState,
-} from '@tanstack/vue-table';
+import type { ColumnDef, ColumnFiltersState, ExpandedState, SortingState, VisibilityState } from "@tanstack/vue-table";
 import {
   FlexRender,
   getCoreRowModel,
@@ -14,41 +8,22 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useVueTable,
-} from '@tanstack/vue-table';
-import {
-  ArchiveIcon,
-  CheckCircle2Icon,
-  ChevronDown,
-  ColumnsIcon,
-  MoreVertical,
-} from 'lucide-vue-next';
-import { h, ref } from 'vue';
+} from "@tanstack/vue-table";
+import { ArchiveIcon, CheckCircle2Icon, ChevronDown, ColumnsIcon, MoreVertical } from "lucide-vue-next";
+import { h, ref } from "vue";
 
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { valueUpdater } from '@/components/ui/table/utils';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { valueUpdater } from "@/components/ui/table/utils";
 
 export interface Blog {
   id: string;
   title: string;
   author: string;
-  status: 'published' | 'archived';
+  status: "published" | "archived";
   createdAt: string;
   readTime: number;
   views: number;
@@ -58,108 +33,232 @@ export interface Blog {
 
 const data: Blog[] = [
   {
-    id: '1',
-    title: 'Introduction to Vue 3',
-    author: 'John Doe',
-    status: 'published',
-    createdAt: '2025-06-01',
+    id: "1",
+    title: "Introduction to Vue 3",
+    author: "John Doe",
+    status: "published",
+    createdAt: "2025-06-01",
     readTime: 5,
     views: 1200,
-    tags: ['vue', 'javascript', 'frontend'],
-    thumbnailUrl: 'https://example.com/thumb/vue3.png',
+    tags: ["vue", "javascript", "frontend"],
+    thumbnailUrl: "https://example.com/thumb/vue3.png",
   },
   {
-    id: '2',
-    title: 'Understanding Composition API',
-    author: 'Jane Smith',
-    status: 'archived',
-    createdAt: '2025-06-15',
+    id: "2",
+    title: "Understanding Composition API",
+    author: "Jane Smith",
+    status: "archived",
+    createdAt: "2025-06-15",
     readTime: 8,
     views: 300,
-    tags: ['vue', 'composition-api'],
+    tags: ["vue", "composition-api"],
   },
   {
-    id: '3',
-    title: 'State Management with Pinia',
-    author: 'Albert Tan',
-    status: 'archived',
-    createdAt: '2025-05-20',
+    id: "3",
+    title: "State Management with Pinia",
+    author: "Albert Tan",
+    status: "archived",
+    createdAt: "2025-05-20",
     readTime: 6,
     views: 850,
-    tags: ['pinia', 'state', 'vue'],
-    thumbnailUrl: 'https://example.com/thumb/pinia.png',
+    tags: ["pinia", "state", "vue"],
+    thumbnailUrl: "https://example.com/thumb/pinia.png",
   },
   {
-    id: '4',
-    title: 'Building SPAs with Vue Router',
-    author: 'Dina Kurnia',
-    status: 'published',
-    createdAt: '2025-06-25',
+    id: "4",
+    title: "Building SPAs with Vue Router",
+    author: "Dina Kurnia",
+    status: "published",
+    createdAt: "2025-06-25",
     readTime: 7,
     views: 1120,
-    tags: ['vue-router', 'spa', 'routing'],
+    tags: ["vue-router", "spa", "routing"],
+  },
+  {
+    id: "1",
+    title: "Introduction to Vue 3",
+    author: "John Doe",
+    status: "published",
+    createdAt: "2025-06-01",
+    readTime: 5,
+    views: 1200,
+    tags: ["vue", "javascript", "frontend"],
+    thumbnailUrl: "https://example.com/thumb/vue3.png",
+  },
+  {
+    id: "2",
+    title: "Understanding Composition API",
+    author: "Jane Smith",
+    status: "archived",
+    createdAt: "2025-06-15",
+    readTime: 8,
+    views: 300,
+    tags: ["vue", "composition-api"],
+  },
+  {
+    id: "3",
+    title: "State Management with Pinia",
+    author: "Albert Tan",
+    status: "archived",
+    createdAt: "2025-05-20",
+    readTime: 6,
+    views: 850,
+    tags: ["pinia", "state", "vue"],
+    thumbnailUrl: "https://example.com/thumb/pinia.png",
+  },
+  {
+    id: "4",
+    title: "Building SPAs with Vue Router",
+    author: "Dina Kurnia",
+    status: "published",
+    createdAt: "2025-06-25",
+    readTime: 7,
+    views: 1120,
+    tags: ["vue-router", "spa", "routing"],
+  },
+  {
+    id: "1",
+    title: "Introduction to Vue 3",
+    author: "John Doe",
+    status: "published",
+    createdAt: "2025-06-01",
+    readTime: 5,
+    views: 1200,
+    tags: ["vue", "javascript", "frontend"],
+    thumbnailUrl: "https://example.com/thumb/vue3.png",
+  },
+  {
+    id: "2",
+    title: "Understanding Composition API",
+    author: "Jane Smith",
+    status: "archived",
+    createdAt: "2025-06-15",
+    readTime: 8,
+    views: 300,
+    tags: ["vue", "composition-api"],
+  },
+  {
+    id: "3",
+    title: "State Management with Pinia",
+    author: "Albert Tan",
+    status: "archived",
+    createdAt: "2025-05-20",
+    readTime: 6,
+    views: 850,
+    tags: ["pinia", "state", "vue"],
+    thumbnailUrl: "https://example.com/thumb/pinia.png",
+  },
+  {
+    id: "4",
+    title: "Building SPAs with Vue Router",
+    author: "Dina Kurnia",
+    status: "published",
+    createdAt: "2025-06-25",
+    readTime: 7,
+    views: 1120,
+    tags: ["vue-router", "spa", "routing"],
+  },
+  {
+    id: "1",
+    title: "Introduction to Vue 3",
+    author: "John Doe",
+    status: "published",
+    createdAt: "2025-06-01",
+    readTime: 5,
+    views: 1200,
+    tags: ["vue", "javascript", "frontend"],
+    thumbnailUrl: "https://example.com/thumb/vue3.png",
+  },
+  {
+    id: "2",
+    title: "Understanding Composition API",
+    author: "Jane Smith",
+    status: "archived",
+    createdAt: "2025-06-15",
+    readTime: 8,
+    views: 300,
+    tags: ["vue", "composition-api"],
+  },
+  {
+    id: "3",
+    title: "State Management with Pinia",
+    author: "Albert Tan",
+    status: "archived",
+    createdAt: "2025-05-20",
+    readTime: 6,
+    views: 850,
+    tags: ["pinia", "state", "vue"],
+    thumbnailUrl: "https://example.com/thumb/pinia.png",
+  },
+  {
+    id: "4",
+    title: "Building SPAs with Vue Router",
+    author: "Dina Kurnia",
+    status: "published",
+    createdAt: "2025-06-25",
+    readTime: 7,
+    views: 1120,
+    tags: ["vue-router", "spa", "routing"],
   },
 ];
 
 const columns: ColumnDef<Blog>[] = [
   {
-    id: 'number',
-    header: () => h('div', { class: 'pl-2' }, 'No'),
-    cell: ({ row }) => h('div', { class: 'pl-2' }, row.index + 1),
+    id: "number",
+    header: () => h("div", { class: "pl-2" }, "No"),
+    cell: ({ row }) => h("div", { class: "pl-2" }, row.index + 1),
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: 'title',
-    header: 'Title',
-    cell: ({ row }) => h('div', { class: 'capitalize' }, row.getValue('title')),
+    accessorKey: "title",
+    header: "Title",
+    cell: ({ row }) => h("div", { class: "capitalize" }, row.getValue("title")),
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: 'status',
-    header: 'Status',
+    accessorKey: "status",
+    header: "Status",
     cell: ({ row }) =>
       h(
         Badge,
         {
-          variant: 'outline',
-          class:
-            'text-muted-foreground flex gap-2 px-1.5 [&_svg]:size-3 font-normal',
+          variant: "outline",
+          class: "text-muted-foreground flex gap-2 px-1.5 [&_svg]:size-3 font-normal",
         },
         {
           default: () => [
-            row.original.status === 'published' &&
+            row.original.status === "published" &&
               h(CheckCircle2Icon, {
-                class: 'text-emerald-600 dark:text-emerald-500',
+                class: "text-emerald-600 dark:text-emerald-500",
               }),
-            row.original.status === 'archived' &&
+            row.original.status === "archived" &&
               h(ArchiveIcon, {
-                class: 'text-gray-500 dark:text-gray-400',
+                class: "text-gray-500 dark:text-gray-400",
               }),
             {
-              published: 'Published',
-              archived: 'Archived',
+              published: "Published",
+              archived: "Archived",
             }[row.original.status],
           ],
         }
       ),
   },
   {
-    accessorKey: 'views',
-    header: 'Views',
-    cell: ({ row }) => h('div', row.getValue('views')),
+    accessorKey: "views",
+    header: "Views",
+    cell: ({ row }) => h("div", row.getValue("views")),
   },
   {
-    accessorKey: 'readTime',
-    header: 'Read Time',
-    cell: ({ row }) => h('div', row.getValue('readTime')),
+    accessorKey: "readTime",
+    header: "Read Time",
+    cell: ({ row }) => h("div", row.getValue("readTime")),
   },
   {
-    accessorKey: 'author',
-    header: 'Author',
-    cell: ({ row }) =>
-      h('div', { class: 'capitalize' }, row.getValue('author')),
+    accessorKey: "author",
+    header: "Author",
+    cell: ({ row }) => h("div", { class: "capitalize" }, row.getValue("author")),
   },
   // {
   //   accessorKey: 'email',
@@ -190,8 +289,8 @@ const columns: ColumnDef<Blog>[] = [
   //   },
   // },
   {
-    id: 'actions',
-    header: 'Actions',
+    id: "actions",
+    header: "Actions",
     enableHiding: false,
     cell: () =>
       h(
@@ -207,28 +306,21 @@ const columns: ColumnDef<Blog>[] = [
                   h(
                     Button,
                     {
-                      variant: 'ghost',
-                      class:
-                        'text-muted-foreground data-[state=open]:bg-muted flex size-8',
-                      size: 'icon',
+                      variant: "ghost",
+                      class: "text-muted-foreground data-[state=open]:bg-muted flex size-8",
+                      size: "icon",
                     },
                     {
-                      default: () => [
-                        h(MoreVertical, { class: 'w-4 h-4' }),
-                        h('span', { class: 'sr-only' }, 'Open menu'),
-                      ],
+                      default: () => [h(MoreVertical, { class: "w-4 h-4" }), h("span", { class: "sr-only" }, "Open menu")],
                     }
                   ),
               }
             ),
             h(
               DropdownMenuContent,
-              { align: 'end', class: 'w-32' },
+              { align: "end", class: "w-32" },
               {
-                default: () => [
-                  h(DropdownMenuItem, {}, { default: () => 'Edit' }),
-                  h(DropdownMenuItem, {}, { default: () => 'Hapus' }),
-                ],
+                default: () => [h(DropdownMenuItem, {}, { default: () => "Edit" }), h(DropdownMenuItem, {}, { default: () => "Hapus" })],
               }
             ),
           ],
@@ -252,12 +344,9 @@ const table = useVueTable({
   getFilteredRowModel: getFilteredRowModel(),
   getExpandedRowModel: getExpandedRowModel(),
   onSortingChange: (updaterOrValue) => valueUpdater(updaterOrValue, sorting),
-  onColumnFiltersChange: (updaterOrValue) =>
-    valueUpdater(updaterOrValue, columnFilters),
-  onColumnVisibilityChange: (updaterOrValue) =>
-    valueUpdater(updaterOrValue, columnVisibility),
-  onRowSelectionChange: (updaterOrValue) =>
-    valueUpdater(updaterOrValue, rowSelection),
+  onColumnFiltersChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnFilters),
+  onColumnVisibilityChange: (updaterOrValue) => valueUpdater(updaterOrValue, columnVisibility),
+  onRowSelectionChange: (updaterOrValue) => valueUpdater(updaterOrValue, rowSelection),
   onExpandedChange: (updaterOrValue) => valueUpdater(updaterOrValue, expanded),
   state: {
     get sorting() {
@@ -290,10 +379,7 @@ const table = useVueTable({
       />
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
-          <Button
-            variant="outline"
-            class="ml-auto shadow-none w-full md:w-auto"
-          >
+          <Button variant="outline" class="ml-auto shadow-none w-full md:w-auto">
             <ColumnsIcon />
             <span class="hidden lg:inline">Customize Columns</span>
             <span class="lg:hidden">Columns</span>
@@ -302,9 +388,7 @@ const table = useVueTable({
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuCheckboxItem
-            v-for="column in table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())"
+            v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
             :key="column.id"
             class="capitalize"
             :model-value="column.getIsVisible()"
@@ -322,16 +406,9 @@ const table = useVueTable({
     <div class="rounded-md overflow-hidden">
       <Table>
         <TableHeader className="bg-primary text-white border-primary">
-          <TableRow
-            v-for="headerGroup in table.getHeaderGroups()"
-            :key="headerGroup.id"
-          >
+          <TableRow v-for="headerGroup in table.getHeaderGroups()" :key="headerGroup.id">
             <TableHead v-for="header in headerGroup.headers" :key="header.id">
-              <FlexRender
-                v-if="!header.isPlaceholder"
-                :render="header.column.columnDef.header"
-                :props="header.getContext()"
-              />
+              <FlexRender v-if="!header.isPlaceholder" :render="header.column.columnDef.header" :props="header.getContext()" />
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -340,10 +417,7 @@ const table = useVueTable({
             <template v-for="row in table.getRowModel().rows" :key="row.id">
               <TableRow :data-state="row.getIsSelected() && 'selected'">
                 <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-                  <FlexRender
-                    :render="cell.column.columnDef.cell"
-                    :props="cell.getContext()"
-                  />
+                  <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
                 </TableCell>
               </TableRow>
               <TableRow v-if="row.getIsExpanded()">
@@ -355,9 +429,7 @@ const table = useVueTable({
           </template>
 
           <TableRow v-else>
-            <TableCell :colspan="columns.length" class="h-24 text-center">
-              No results.
-            </TableCell>
+            <TableCell :colspan="columns.length" class="h-24 text-center"> No results. </TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -365,26 +437,11 @@ const table = useVueTable({
 
     <div class="flex items-center justify-end space-x-4">
       <div class="flex-1 text-sm text-muted-foreground">
-        {{ table.getFilteredSelectedRowModel().rows.length }} of
-        {{ table.getFilteredRowModel().rows.length }} row(s) selected.
+        {{ table.getFilteredSelectedRowModel().rows.length }} of {{ table.getFilteredRowModel().rows.length }} row(s) selected.
       </div>
       <div class="space-x-2">
-        <Button
-          variant="outline"
-          size="sm"
-          :disabled="!table.getCanPreviousPage()"
-          @click="table.previousPage()"
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          :disabled="!table.getCanNextPage()"
-          @click="table.nextPage()"
-        >
-          Next
-        </Button>
+        <Button variant="outline" size="sm" :disabled="!table.getCanPreviousPage()" @click="table.previousPage()"> Previous </Button>
+        <Button variant="outline" size="sm" :disabled="!table.getCanNextPage()" @click="table.nextPage()"> Next </Button>
       </div>
     </div>
   </div>

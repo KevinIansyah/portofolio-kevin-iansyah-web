@@ -11,17 +11,10 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div v-motion-slide-visible-top :delay="300" class="text-center">
-    <h3
-      class="text-base font-bold tracking-tight bg-clip-text text-transparent"
-      style="background-image: linear-gradient(to right, var(--color-chart-1), var(--color-chart-5))"
-    >
-      {{ subtitle }}
-    </h3>
-    <h2 class="text-2xl md:text-4xl font-bold font-serif text-foreground mb-4" :class="titleColor ?? ''">
-      {{ title }}
-    </h2>
-    <p v-if="description" class="text-sm text-foreground max-w-md mx-auto" :class="descriptionColor ?? ''">
+  <div v-motion-slide-visible-top :delay="500" class="mx-auto mb-12 max-w-3xl space-y-4 text-center">
+    <div class="bg-primary/10 text-primary inline-block rounded-lg px-3 py-1 text-sm">{{ subtitle }}</div>
+    <h2 class="text-3xl font-bold tracking-tight md:text-4xl">{{ title }}</h2>
+    <p class="text-muted-foreground">
       {{ description }}
     </p>
   </div>

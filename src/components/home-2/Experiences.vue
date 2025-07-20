@@ -4,13 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Stepper, StepperDescription, StepperItem, StepperSeparator, StepperTitle } from "@/components/ui/stepper";
 import { Check } from "lucide-vue-next";
 
-interface StepItem {
-  step: number;
-  title: string;
-  description: string;
-}
-
-const steps: StepItem[] = [
+const steps = [
   {
     step: 1,
     title: "Your details",
@@ -30,7 +24,7 @@ const steps: StepItem[] = [
 </script>
 
 <template>
-  <section class="mx-auto px-4 max-w-6xl">
+  <section class="mx-auto px-4 md:max-w-7xl lg:max-w-6xl">
     <div class="space-y-10">
       <Heading title="PENGALAMAN SAYA" description="Kumpulan pengalaman profesional saya dalam membangun dan mengelola aplikasi web" />
 

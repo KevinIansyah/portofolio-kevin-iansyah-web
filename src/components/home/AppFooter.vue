@@ -25,20 +25,20 @@ const subscribeNewsletter = () => {
             <p class="text-muted-foreground text-sm mb-6 max-w-xs"> Fullstack Web Developer berpengalaman dengan teknologi modern seperti Vue, React, Tailwind CSS, Laravel, dan NestJS.</p>
 
             <div>
-              <h4 class="text-sm font-medium mb-3">Subscribe to our blogs</h4>
+              <h4 class="text-sm font-medium mb-4">Subscribe to our blogs</h4>
               <div class="flex">
-                <Input v-model="email" type="email" placeholder="Enter your email" class="flex-1" />
+                <Input v-model="email" type="email" placeholder="Enter your email" class="text-sm flex-1" />
                 <Button @click="subscribeNewsletter" class="ml-2">
                   <ArrowRight />
                 </Button>
               </div>
-              <p class="text-xs text-muted-foreground mt-2">Get the latest blog and updates from our team.</p>
+              <p class="text-sm text-muted-foreground mt-2">Get the latest blog and updates from our team.</p>
             </div>
           </div>
 
           <div>
             <h4 class="text-sm font-semibold mb-4">Product</h4>
-            <ul class="space-y-3">
+            <ul class="space-y-4">
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Features</a></li>
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Pricing</a></li>
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Integrations</a></li>
@@ -49,7 +49,7 @@ const subscribeNewsletter = () => {
 
           <div>
             <h4 class="text-sm font-semibold mb-4">Company</h4>
-            <ul class="space-y-3">
+            <ul class="space-y-4">
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">About us</a></li>
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Blog</a></li>
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Careers</a></li>
@@ -60,7 +60,7 @@ const subscribeNewsletter = () => {
 
           <div>
             <h4 class="text-sm font-semibold mb-4">Resources</h4>
-            <ul class="space-y-3">
+            <ul class="space-y-4">
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Community</a></li>
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Contact</a></li>
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Support</a></li>
@@ -70,7 +70,7 @@ const subscribeNewsletter = () => {
           </div>
 
           <div>
-            <h4 class="text-sm font-medium mb-3">Developers</h4>
+            <h4 class="text-sm font-medium mb-4">Developers</h4>
             <ul class="space-y-2">
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">API</a></li>
               <li><a href="#" class="text-sm text-foreground hover:text-muted-foreground transition-colors">Status</a></li>

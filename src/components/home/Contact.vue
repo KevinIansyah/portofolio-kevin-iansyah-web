@@ -49,7 +49,7 @@ const socials: SocialItem[] = [
 
 <template>
   <section class="py-16 mx-auto px-4 max-w-6xl">
-    <div class="space-y-10">
+    <div class="space-y-14">
       <Heading
         title="Hubungi Saya"
         subtitle="Kontak"
@@ -60,7 +60,7 @@ const socials: SocialItem[] = [
         <div class="col-span-1 w-full h-full rounded-lg overflow-hidden">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253258.4167432963!2d112.76792524902346!3d-7.335610949166455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1752983318780!5m2!1sid!2sid"
-            class="w-full h-full min-h-100"
+            class="w-full h-full min-h-80 md:h-full"
             allowfullscreen="true"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -68,15 +68,15 @@ const socials: SocialItem[] = [
         </div>
 
         <div class="col-span-2 bg-radial from-muted to-background p-4 lg:p-6 space-y-4 lg:space-y-6 rounded-lg">
-          <div class="flex flex-col md:flex-row gap-4 lg:gap-6 h-full">
+          <div class="flex flex-col md:flex-row gap-6 h-full">
             <div class="flex-1 space-y-4 lg:space-y-6">
               <h3 class="text-lg font-semibold">Kirim Pesan Cepat</h3>
 
-              <div class="space-y-4 text-sm">
-                <Input type="text" placeholder="Nama Anda" />
-                <Input type="email" placeholder="Email Anda" />
-                <Input type="text" placeholder="Nomor Telepon" />
-                <Textarea placeholder="Pesan Anda" class="min-h-[68px] lg:min-h-[84px]" />
+              <div class="space-y-4">
+                <Input class="text-sm" type="text" placeholder="Nama Anda" />
+                <Input class="text-sm" type="email" placeholder="Email Anda" />
+                <Input class="text-sm" type="text" placeholder="Nomor Telepon" />
+                <Textarea class="text-sm min-h-[90px] lg:min-h-[84px]" placeholder="Pesan Anda" />
                 <Button class="w-full flex items-center justify-center gap-2 shadow-none">
                   Kirim
                   <SendHorizonal />

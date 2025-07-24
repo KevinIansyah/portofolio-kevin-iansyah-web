@@ -11,7 +11,7 @@ const isDark = computed(() => mode.value === "dark");
 
 <template>
   <section class="mx-auto py-16 px-4 lg:max-w-6xl">
-    <div class="space-y-10">
+    <div class="space-y-14">
       <Heading
         title="Teknologi yang Digunakan"
         subtitle="Teknologi"

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import About from "@/components/home/About.vue";
+import Blogs from "@/components/home/Blogs.vue";
 import Contact from "@/components/home/Contact.vue";
 import Hero from "@/components/home/Hero.vue";
 import Projects from "@/components/home/Projects.vue";
@@ -14,5 +15,6 @@ import HomeLayout from "@/layouts/HomeLayout.vue";
     <Technologies id="teknologi" />
     <Projects id="proyek" />
     <Contact id="kontak" />
+    <Blogs id="blog" />
   </HomeLayout>
 </template>

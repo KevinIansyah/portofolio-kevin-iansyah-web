@@ -8,7 +8,7 @@ import { ChevronRightIcon } from "lucide-vue-next";
     <div class="min-h-screen mx-auto px-4 max-w-6xl relative flex items-center justify-center overflow-hidden lg:overflow-visible">
       <div class="absolute top-25 left-25 w-72 h-72 bg-purple-600/30 rounded-full blur-3xl animate-float-slow"></div>
       <div
-        class="absolute top-40 left-0 md:top-50 md:left-120 lg:top-100 lg:left-150 xl:top-100 xl:left-100  w-64 h-64 bg-pink-500/30 rounded-full blur-3xl animate-float-medium"
+        class="absolute top-40 left-0 md:top-50 md:left-120 lg:top-100 lg:left-150 xl:top-100 xl:left-100 w-64 h-64 bg-pink-500/30 rounded-full blur-3xl animate-float-medium"
       ></div>
       <div class="absolute bottom-25 right-25 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl animate-float-fast"></div>
       <div
@@ -26,7 +26,7 @@ import { ChevronRightIcon } from "lucide-vue-next";
         </div>
 
         <div class="mx-auto mt-5 max-w-2xl text-center">
-          <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Kevin Iansyah</h1>
+          <h1 class="scroll-m-20 text-5xl font-extrabold tracking-tight text-foreground dark:text-white">Kevin Iansyah</h1>
         </div>
 
         <div class="mx-auto mt-5 max-w-3xl text-center">

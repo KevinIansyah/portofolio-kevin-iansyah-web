@@ -48,52 +48,51 @@ const projects: ProjectItem[] = [
 
 <template>
   <section class="py-16 mx-auto px-4 max-w-6xl">
-    <div class="space-y-10">
+    <div class="space-y-14">
       <Heading
         title="Studi Kasus Terbaru"
         subtitle="Proyek Saya"
         description="Beberapa proyek yang telah saya kerjakan, mulai dari landing page, aplikasi web interaktif hingga sistem informasi untuk pengelolaan data dan proses bisnis."
       />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-        <Card v-for="project in projects" :key="project.id" class="group overflow-hidden flex flex-col rounded-lg">
-          <div class="w-full h-50 overflow-hidden">
-            <a data-fancybox="projects" :href="project.image" :data-caption="project.title">
-              <img :src="project.image" alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-            </a>
-          </div>
-
-          <CardHeader class="pt-4 lg:pt-6">
-            <h3 class="font-semibold text-lg">{{ project.title }}</h3>
-            <Badge variant="secondary" class="mt-1">{{ project.category }}</Badge>
-          </CardHeader>
-
-          <CardContent class="text-sm text-muted-foreground p-4 lg:p-6">
-            {{ project.description }}
-          </CardContent>
-
-          <CardFooter class="space-y-4 lg:space-y-6 inline">
-            <div class="flex flex-wrap gap-2">
-              <Badge v-for="tag in project.tags" :key="tag" variant="outline">
-                {{ tag }}
-              </Badge>
+      <div class="space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+          <Card v-for="project in projects" :key="project.id" class="group overflow-hidden flex flex-col rounded-lg">
+            <div class="w-full h-50 overflow-hidden">
+              <a data-fancybox="projects" :href="project.image" :data-caption="project.title">
+                <img :src="project.image" alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+              </a>
             </div>
 
-            <Button class="shadow-none flex items-center justify-center gap-2">
-              Lihat Detail
-              <ArrowRight />
-            </Button>
-          </CardFooter>
-        </Card>
-      </div>
+            <CardHeader class="pt-4 lg:pt-6">
+              <h3 class="font-semibold text-lg">{{ project.title }}</h3>
+              <Badge variant="secondary" class="mt-1">{{ project.category }}</Badge>
+            </CardHeader>
 
-      <div class="w-full flex justify-center">
-        <Button variant="outline" class="shadow-none flex items-center justify-center gap-2" asChild>
-          <RouterLink to="/projects">
-            Lihat Semua Proyek
-            <ArrowRight class="w-4 h-4" />
-          </RouterLink>
-        </Button>
+            <CardContent class="text-sm text-muted-foreground p-4 lg:p-6">
+              {{ project.description }}
+            </CardContent>
+
+            <CardFooter class="space-y-4 lg:space-y-6 inline">
+              <div class="flex flex-wrap gap-2">
+                <Badge v-for="tag in project.tags" :key="tag" variant="outline">
+                  {{ tag }}
+                </Badge>
+              </div>
+
+              <Button variant="ghost" class="w-full shadow-none flex items-center justify-center gap-2">
+                Lihat Detail
+                <ArrowRight />
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+
+        <div class="flex justify-center">
+          <Button variant="outline" class="w-full max-w-sm shadow-none" asChild>
+            <RouterLink to="/projects"> Lihat Semua Proyek </RouterLink>
+          </Button>
+        </div>
       </div>
     </div>
   </section>

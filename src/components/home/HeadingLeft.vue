@@ -11,7 +11,7 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div v-motion-slide-visible-top :delay="500" class="mx-auto max-w-3xl space-y-4 text-center">
+  <div class="space-y-4 text-left">
     <div class="bg-primary/10 text-primary inline-block rounded-lg px-3 py-1 text-sm">{{ subtitle }}</div>
     <h2 class="text-3xl font-bold tracking-tight md:text-4xl">{{ title }}</h2>
     <p class="text-muted-foreground">

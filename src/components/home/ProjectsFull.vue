@@ -119,7 +119,7 @@ function clearFilters() {
 
 <template>
   <section class="mt-16 py-16 mx-auto px-4 max-w-6xl">
-    <div class="space-y-10">
+    <div class="space-y-14">
       <Heading
         title="Studi Kasus Terbaru"
         subtitle="Proyek Saya"

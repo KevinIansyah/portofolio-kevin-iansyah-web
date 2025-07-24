@@ -101,72 +101,74 @@ const currentValue = computed<AboutItem>(() => {
 </script>
 
 <template>
-  <section class="py-16">
-    <div class="mx-auto px-4 max-w-6xl">
-      <Heading
-        title="Tentang Saya"
-        subtitle="Profil"
-        description="Beberapa hal tentang latar belakang, keahlian, dan nilai yang saya pegang dalam perjalanan saya sebagai Fullstack Web Developer"
-      />
+  <section>
+    <div class="mx-auto py-16 px-4 max-w-6xl">
+      <div class="space-y-14">
+        <Heading
+          title="Tentang Saya"
+          subtitle="Profil"
+          description="Beberapa hal tentang latar belakang, keahlian, dan nilai yang saya pegang dalam perjalanan saya sebagai Fullstack Web Developer"
+        />
 
-      <Tabs v-motion-slide-visible-top :delay="500" v-model="activeValue" class="space-y-10">
-        <div class="flex justify-center">
-          <div class="w-full lg:hidden">
-            <Select v-model="activeValue">
-              <SelectTrigger class="w-full shadow-none">
-                <SelectValue placeholder="Select a value" />
-              </SelectTrigger>
-              <SelectContent class="shadow-none">
-                <SelectItem v-for="value in aboutItems" :key="value.id" :value="value.id">
-                  <div class="flex items-center gap-2">
-                    <component :is="value.icon" :class="cn('h-4 w-4', value.color)" />
-                    <span>{{ value.name }}</span>
-                  </div>
-                </SelectItem>
-              </SelectContent>
-            </Select>
+        <Tabs v-motion-slide-visible-top :delay="500" v-model="activeValue">
+          <div class="flex justify-center">
+            <div class="w-full lg:hidden">
+              <Select v-model="activeValue">
+                <SelectTrigger class="w-full shadow-none">
+                  <SelectValue placeholder="Select a value" />
+                </SelectTrigger>
+                <SelectContent class="shadow-none">
+                  <SelectItem v-for="value in aboutItems" :key="value.id" :value="value.id">
+                    <div class="flex items-center gap-2">
+                      <component :is="value.icon" :class="cn('h-4 w-4', value.color)" />
+                      <span>{{ value.name }}</span>
+                    </div>
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <TabsList class="hidden h-auto bg-transparent lg:flex gap-2">
+              <TabsTrigger
+                v-for="value in aboutItems"
+                :key="value.id"
+                :value="value.id"
+                :class="cn('data-[state=active]:bg-muted gap-2', 'data-[state=active]:border data-[state=active]:shadow-none border-transparent ')"
+              >
+                <component :is="value.icon" :class="cn('h-4 w-4', value.color)" />
+                <span>{{ value.name }}</span>
+              </TabsTrigger>
+            </TabsList>
           </div>
 
-          <TabsList class="hidden h-auto bg-transparent p-1 lg:flex">
-            <TabsTrigger
-              v-for="value in aboutItems"
-              :key="value.id"
-              :value="value.id"
-              :class="cn('data-[state=active]:bg-muted gap-2', 'data-[state=active]:border data-[state=active]:shadow-none border-transparent ')"
-            >
-              <component :is="value.icon" :class="cn('h-4 w-4', value.color)" />
-              <span>{{ value.name }}</span>
-            </TabsTrigger>
-          </TabsList>
-        </div>
-
-        <div v-motion-slide-visible-top :delay="500" class="bg-radial from-muted to-background p-4 lg:p-6 rounded-xl">
-          <div class="space-y-6 md:col-span-6">
-            <div class="mb-4 flex items-center gap-4">
-              <div :class="cn('rounded-lg p-2.5', 'bg-primary/10')">
-                <component :is="currentValue.icon" :class="cn('h-7 w-7', currentValue.color)" />
+          <div v-motion-slide-visible-top :delay="500" class="bg-radial from-muted to-background p-4 lg:p-6 rounded-xl">
+            <div class="space-y-6 md:col-span-6">
+              <div class="mb-4 flex items-center gap-4">
+                <div :class="cn('rounded-lg p-2.5', 'bg-primary/10')">
+                  <component :is="currentValue.icon" :class="cn('h-7 w-7', currentValue.color)" />
+                </div>
+                <h3 class="text-xl font-bold">{{ currentValue.name }}</h3>
               </div>
-              <h3 class="text-xl font-bold">{{ currentValue.name }}</h3>
-            </div>
 
-            <div class="p-4 lg:p-6 bg-primary/10 rounded-lg">
-              <p class="text-muted-foreground text-base">
-                {{ currentValue.description }}
-              </p>
-            </div>
+              <div class="p-4 lg:p-6 bg-primary/10 rounded-lg">
+                <p class="text-muted-foreground text-base">
+                  {{ currentValue.description }}
+                </p>
+              </div>
 
-            <div class="space-y-3 pt-2">
-              <h4 class="font-medium">Prinsip Utama:</h4>
-              <ul class="space-y-2">
-                <li v-for="(principle, i) in currentValue.principles" :key="i" class="text-bas flex items-start gap-2 e">
-                  <ArrowUpRight :class="cn('mt-0.5 h-5 w-5', currentValue.color)" />
-                  <span>{{ principle }}</span>
-                </li>
-              </ul>
+              <div class="space-y-3 pt-2">
+                <h4 class="font-medium">Prinsip Utama:</h4>
+                <ul class="space-y-2">
+                  <li v-for="(principle, i) in currentValue.principles" :key="i" class="text-bas flex items-start gap-2 e">
+                    <ArrowUpRight :class="cn('mt-0.5 h-5 w-5', currentValue.color)" />
+                    <span>{{ principle }}</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </Tabs>
+        </Tabs>
+      </div>
     </div>
   </section>
 </template>

@@ -20,7 +20,7 @@ const isDark = computed(() => mode.value === "dark");
 
       <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 lg:gap-6">
         <div
-          v-motion-slide-visible-top
+          v-motion-fade-visible
           :delay="500"
           v-for="(tech, index) in techIcons"
           :key="tech.id"

@@ -1,8 +1,9 @@
 import BlogCreate from "@/pages/dashboard/blogs/BlogCreate.vue";
 import BlogEdit from "@/pages/dashboard/blogs/BlogEdit.vue";
-import Blogs from "@/pages/dashboard/blogs/Blogs.vue";
+import BlogsDashboard from "@/pages/dashboard/blogs/Blogs.vue";
 import Dashboard from "@/pages/dashboard/Dashboard.vue";
 import Profile from "@/pages/dashboard/settings/Profile.vue";
+import Blogs from "@/pages/home/Blogs.vue";
 import Home from "@/pages/home/Home.vue";
 import Project from "@/pages/home/Project.vue";
 import { createRouter, createWebHistory } from "vue-router";
@@ -19,6 +20,11 @@ const routes = [
     component: Project,
   },
   {
+    path: "/blogs",
+    name: "Blogs",
+    component: Blogs,
+  },
+  {
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
@@ -30,8 +36,8 @@ const routes = [
   },
   {
     path: "/dashboard/blogs",
-    name: "Blogs",
-    component: Blogs,
+    name: "Dashboard Blogs",
+    component: BlogsDashboard,
   },
   {
     path: "/dashboard/blogs/create",

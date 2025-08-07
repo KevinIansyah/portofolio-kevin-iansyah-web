@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Heading from "@/components/home/Heading.vue";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, BookOpen, Brain, Gamepad2, Hand, Rocket, Target } from "lucide-vue-next";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 
 interface AboutItem {
   id: string;
@@ -15,7 +15,7 @@ interface AboutItem {
   principles: string[];
 }
 
-const aboutItems: AboutItem[] = [
+const abouts: AboutItem[] = [
   {
     id: "intro",
     name: "Haii, Saya Kevin Iansyah",
@@ -33,7 +33,7 @@ const aboutItems: AboutItem[] = [
     id: "background",
     name: "Latar Belakang",
     description:
-      "Selama perjalanan saya sebagai developer, saya banyak belajar secara mandiri melalui dokumentasi, komunitas, dan proyek nyata — mulai dari landing page, aplikasi web, hingga sistem informasi.",
+      "Selama perjalanan saya sebagai developer, saya banyak belajar secara mandiri melalui dokumentasi, komunitas, dan proyek nyata. Mulai dari landing page, aplikasi web, hingga sistem informasi.",
     icon: BookOpen,
     color: "text-pink-500",
     principles: [
@@ -60,7 +60,7 @@ const aboutItems: AboutItem[] = [
     id: "values",
     name: "Nilai yang Saya Pegang",
     description:
-      "Bagi saya, kode yang baik tidak hanya harus jalan, tapi juga mudah dipelihara, konsisten, dan dimengerti oleh orang lain. Saya percaya pada *clean code*, komunikasi yang jelas, dokumentasi yang rapi, dan kolaborasi tim yang sehat. Saya juga senang belajar dari feedback untuk terus meningkatkan kualitas kerja saya di masa mendatang.",
+      "Bagi saya, kode yang baik tidak hanya harus jalan, tapi juga mudah dipelihara, konsisten, dan dimengerti oleh orang lain. Saya percaya pada clean code, komunikasi yang jelas, dokumentasi yang rapi, dan kolaborasi tim yang sehat. Saya juga senang belajar dari feedback untuk terus meningkatkan kualitas kerja saya di masa mendatang.",
     icon: Target,
     color: "text-amber-500",
     principles: [
@@ -93,11 +93,7 @@ const aboutItems: AboutItem[] = [
   },
 ];
 
-const activeValue = ref<string>(aboutItems[0].id);
-
-const currentValue = computed<AboutItem>(() => {
-  return aboutItems.find((value) => value.id === activeValue.value) || aboutItems[0];
-});
+const activeValue = ref<string>(abouts[0].id);
 </script>
 
 <template>
@@ -110,15 +106,16 @@ const currentValue = computed<AboutItem>(() => {
           description="Beberapa hal tentang latar belakang, keahlian, dan nilai yang saya pegang dalam perjalanan saya sebagai Fullstack Web Developer"
         />
 
-        <Tabs v-motion-slide-visible-top :delay="500" v-model="activeValue">
+        <Tabs v-motion-fade-visible :delay="500" v-model="activeValue">
           <div class="flex justify-center">
             <div class="w-full lg:hidden">
               <Select v-model="activeValue">
-                <SelectTrigger class="w-full shadow-none">
-                  <SelectValue placeholder="Select a value" />
+                <SelectTrigger class="w-full shadow-none" aria-label="Pilih kategori">
+                  <SelectValue placeholder="Pilih kategori" />
+                  <span class="sr-only">Pilih kategori</span>
                 </SelectTrigger>
                 <SelectContent class="shadow-none">
-                  <SelectItem v-for="value in aboutItems" :key="value.id" :value="value.id">
+                  <SelectItem v-for="value in abouts" :key="value.id" :value="value.id">
                     <div class="flex items-center gap-2">
                       <component :is="value.icon" :class="cn('h-4 w-4', value.color)" />
                       <span>{{ value.name }}</span>
@@ -128,12 +125,17 @@ const currentValue = computed<AboutItem>(() => {
               </Select>
             </div>
 
-            <TabsList class="hidden h-auto bg-transparent lg:flex gap-2">
+            <TabsList class="hidden h-auto bg-transparent lg:flex gap-2" role="tablist">
               <TabsTrigger
-                v-for="value in aboutItems"
+                v-for="value in abouts"
                 :key="value.id"
                 :value="value.id"
-                :class="cn('data-[state=active]:bg-muted gap-2', 'data-[state=active]:border data-[state=active]:shadow-none border-transparent ')"
+                role="tab"
+                :id="`tab-trigger-${value.id}`"
+                :aria-selected="activeValue === value.id ? 'true' : 'false'"
+                :aria-controls="`tab-content-${value.id}`"
+                :tabindex="activeValue === value.id ? '0' : '-1'"
+                :class="cn('data-[state=active]:bg-muted gap-2', 'data-[state=active]:border data-[state=active]:shadow-none border-transparent')"
               >
                 <component :is="value.icon" :class="cn('h-4 w-4', value.color)" />
                 <span>{{ value.name }}</span>
@@ -141,32 +143,41 @@ const currentValue = computed<AboutItem>(() => {
             </TabsList>
           </div>
 
-          <div v-motion-slide-visible-top :delay="500" class="bg-radial from-muted to-background p-4 lg:p-6 rounded-xl">
-            <div class="space-y-6 md:col-span-6">
+          <TabsContent
+            v-for="value in abouts"
+            :key="value.id"
+            :value="value.id"
+            role="tabpanel"
+            :id="`tab-content-${value.id}`"
+            :aria-labelledby="`tab-trigger-${value.id}`"
+            class="bg-radial from-muted to-background p-4 lg:p-6 rounded-xl"
+            tabindex="0"
+          >
+            <div class="space-y-6">
               <div class="mb-4 flex items-center gap-4">
                 <div :class="cn('rounded-lg p-2.5', 'bg-primary/10')">
-                  <component :is="currentValue.icon" :class="cn('h-7 w-7', currentValue.color)" />
+                  <component :is="value.icon" :class="cn('h-7 w-7', value.color)" />
                 </div>
-                <h3 class="text-xl font-bold">{{ currentValue.name }}</h3>
+                <h3 class="text-xl font-bold">{{ value.name }}</h3>
               </div>
 
               <div class="p-4 lg:p-6 bg-primary/10 rounded-lg">
                 <p class="text-muted-foreground text-base">
-                  {{ currentValue.description }}
+                  {{ value.description }}
                 </p>
               </div>
 
               <div class="space-y-3 pt-2">
                 <h4 class="font-medium">Prinsip Utama:</h4>
                 <ul class="space-y-2">
-                  <li v-for="(principle, i) in currentValue.principles" :key="i" class="text-bas flex items-start gap-2 e">
-                    <ArrowUpRight :class="cn('mt-0.5 h-5 w-5', currentValue.color)" />
+                  <li v-for="(principle, i) in value.principles" :key="i" class="text-bas flex items-start gap-2">
+                    <ArrowUpRight :class="cn('mt-0.5 h-5 w-5', value.color)" />
                     <span>{{ principle }}</span>
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
+          </TabsContent>
         </Tabs>
       </div>
     </div>

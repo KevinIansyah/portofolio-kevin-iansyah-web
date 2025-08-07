@@ -57,20 +57,22 @@ const socials: SocialItem[] = [
       />
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-        <div class="col-span-1 w-full h-full rounded-lg overflow-hidden">
+        <div v-motion-fade-visible :delay="500" class="lg:col-span-1 w-full h-full rounded-lg overflow-hidden">
           <iframe
+            title="Lokasi Surabaya di Google Maps"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253258.4167432963!2d112.76792524902346!3d-7.335610949166455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1752983318780!5m2!1sid!2sid"
             class="w-full h-full min-h-80 md:h-full"
             allowfullscreen="true"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+          >
+          </iframe>
         </div>
 
-        <div class="col-span-2 bg-radial from-muted to-background p-4 lg:p-6 space-y-4 lg:space-y-6 rounded-lg">
-          <div class="flex flex-col md:flex-row gap-6 h-full">
+        <div v-motion-fade-visible :delay="500" class="lg:col-span-2 bg-radial from-muted to-background p-4 lg:p-6 space-y-4 lg:space-y-6 rounded-lg">
+          <div class="flex flex-col md:flex-row gap-8 lg:gap-6 h-full">
             <div class="flex-1 space-y-4 lg:space-y-6">
-              <h3 class="text-lg font-semibold">Kirim Pesan Cepat</h3>
+              <h3 class="text-lg font-semibold">Tinggalkan Pesan</h3>
 
               <div class="space-y-4">
                 <Input class="text-sm" type="text" placeholder="Nama Anda" />
@@ -89,25 +91,24 @@ const socials: SocialItem[] = [
             <div class="flex-1 space-y-4 lg:space-y-6">
               <h3 class="text-lg font-semibold">Informasi Kontak</h3>
 
-              <div class="space-y-4 text-sm">
+              <div class="space-y-4">
                 <div class="flex items-start gap-2">
-                  <MapPin class="w-4.5 h-4.5 text-muted-foreground" />
+                  <MapPin class="w-4.5 h-4.5 text-muted-foreground shrink-0" />
                   <div class="space-y-2">
-                    <h6 class="text-base font-semibold">Alamat</h6>
                     <p class="text-sm text-muted-foreground">
                       Jl. Gn. Anyar Jaya Selatan No.25, Gn. Anyar, Kec. Gn. Anyar, Surabaya, Jawa Timur 60294
                     </p>
                   </div>
                 </div>
                 <div class="flex items-start gap-2">
-                  <Phone class="w-4.5 h-4.5 text-muted-foreground" />
+                  <Phone class="w-4.5 h-4.5 text-muted-foreground shrink-0" />
                   <div class="space-y-2">
                     <h6 class="text-base font-semibold">Nomor Ponsel</h6>
-                    <p class="text-sm text-muted-foreground">+62 858-15787906</p>
+                    <p class="text-sm text-muted-foreground">+62 858-1578-7906</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-2">
-                  <Mail class="w-4.5 h-4.5 text-muted-foreground" />
+                  <Mail class="w-4.5 h-4.5 text-muted-foreground shrink-0" />
                   <div class="space-y-2">
                     <h6 class="text-base font-semibold">Email</h6>
                     <p class="text-sm text-muted-foreground">keviniansyah04@gmail.com</p>

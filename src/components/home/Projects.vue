@@ -21,26 +21,29 @@ interface ProjectItem {
 const projects: ProjectItem[] = [
   {
     id: 1,
-    title: "REST API Development",
-    description: "Designed and developed a scalable REST API using Node.js and Express for a healthcare provider.",
-    tags: ["Node.js", "Express", "MongoDB", "Docker"],
-    category: "Backend",
+    title: "GA Service PT SIER",
+    description:
+      "Platform internal PT Surabaya Industrial Estate Rungkut untuk manajemen peminjaman fasilitas kantor seperti ruang dan kendaraan, dilengkapi fitur pelaporan otomatis untuk meningkatkan efisiensi operasional.",
+    tags: ["Laravel", "Blade", "MySQL"],
+    category: "Fullstack",
     image: BannerProject1,
   },
   {
     id: 2,
-    title: "React Dashboard",
-    description: "Built a customizable analytics dashboard with real-time data visualization using React and D3.js.",
-    tags: ["React", "TypeScript", "D3.js", "Material UI"],
-    category: "Frontend",
+    title: "Clarities Laboratorium Hukum",
+    description:
+      "Platform informasi dan manajemen Laboratorium Hukum UPN Veteran Jatim, mencakup pengelolaan konten, modul, jadwal praktikum, kurikulum, peminjaman ruang, berita, dan pelatihan.",
+    tags: ["Laravel", "Blade", "MySQL"],
+    category: "Fullstack",
     image: BannerProject2,
   },
   {
     id: 3,
-    title: "Cross-platform Mobile App",
-    description: "Developed a cross-platform mobile application for event management with offline capabilities.",
-    tags: ["React Native", "Redux", "Firebase", "Expo"],
-    category: "Mobile",
+    title: "Mexpo CBT",
+    description:
+      "Platform ujian berbasis komputer HIMA S1 Manajemen Universitas Airlangga untuk pelaksanaan Management Olympiad (MO), dengan sistem penilaian otomatis guna mendukung kompetisi yang efisien.",
+    tags: ["Laravel", "Blade", "MySQL"],
+    category: "Fullstack",
     image: BannerProject3,
   },
 ];
@@ -57,10 +60,20 @@ const projects: ProjectItem[] = [
 
       <div class="space-y-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-          <Card v-for="project in projects" :key="project.id" class="group overflow-hidden flex flex-col rounded-lg">
+          <Card
+            v-motion-fade-visible
+            :delay="500"
+            v-for="project in projects"
+            :key="project.id"
+            class="group overflow-hidden flex flex-col rounded-lg"
+          >
             <div class="w-full h-50 overflow-hidden">
               <a data-fancybox="projects" :href="project.image" :data-caption="project.title">
-                <img :src="project.image" alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                <img
+                  :src="project.image"
+                  :alt="project.title"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
               </a>
             </div>
 
@@ -69,7 +82,7 @@ const projects: ProjectItem[] = [
               <Badge variant="secondary" class="mt-1">{{ project.category }}</Badge>
             </CardHeader>
 
-            <CardContent class="text-sm text-muted-foreground p-4 lg:p-6">
+            <CardContent class="text-sm text-muted-foreground line-clamp-3 m-4 lg:m-6">
               {{ project.description }}
             </CardContent>
 
@@ -88,7 +101,7 @@ const projects: ProjectItem[] = [
           </Card>
         </div>
 
-        <div class="flex justify-center">
+        <div v-motion-fade-visible :delay="500" class="flex justify-center">
           <Button variant="outline" class="w-full max-w-sm shadow-none" asChild>
             <RouterLink to="/projects"> Lihat Semua Proyek </RouterLink>
           </Button>

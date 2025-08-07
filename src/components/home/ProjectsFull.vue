@@ -22,85 +22,88 @@ interface ProjectItem {
 const projects: ProjectItem[] = [
   {
     id: 1,
-    title: "REST API Development",
-    description: "Designed and developed a scalable REST API using Node.js and Express for a healthcare provider.",
-    tags: ["Node.js", "Express", "MongoDB", "Docker"],
-    category: "Backend",
+    title: "GA Service PT SIER",
+    description:
+      "Platform internal PT Surabaya Industrial Estate Rungkut untuk manajemen peminjaman fasilitas kantor seperti ruang dan kendaraan, dilengkapi fitur pelaporan otomatis untuk meningkatkan efisiensi operasional.",
+    tags: ["Laravel", "Blade", "MySQL"],
+    category: "Fullstack",
     image: BannerProject1,
   },
   {
     id: 2,
-    title: "React Dashboard",
-    description: "Built a customizable analytics dashboard with real-time data visualization using React and D3.js.",
-    tags: ["React", "TypeScript", "D3.js", "Material UI"],
-    category: "Frontend",
+    title: "Clarities Laboratorium Hukum",
+    description:
+      "Platform informasi dan manajemen Laboratorium Hukum UPN Veteran Jatim, mencakup pengelolaan konten, modul, jadwal praktikum, kurikulum, peminjaman ruang, berita, dan pelatihan.",
+    tags: ["Laravel", "Blade", "MySQL"],
+    category: "Fullstack",
     image: BannerProject2,
   },
   {
     id: 3,
-    title: "Cross-platform Mobile App",
-    description: "Developed a cross-platform mobile application for event management with offline capabilities.",
-    tags: ["React Native", "Redux", "Firebase", "Expo"],
-    category: "Mobile",
+    title: "Mexpo CBT",
+    description:
+      "Platform ujian berbasis komputer HIMA S1 Manajemen Universitas Airlangga untuk pelaksanaan Management Olympiad (MO), dengan sistem penilaian otomatis guna mendukung kompetisi yang efisien.",
+    tags: ["Laravel", "Blade", "MySQL"],
+    category: "Fullstack",
     image: BannerProject3,
   },
-  {
-    id: 4,
-    title: "Data Pipeline Architecture",
-    description: "Designed and implemented a data processing pipeline for real-time analytics using Apache Kafka.",
-    tags: ["Python", "Kafka", "AWS", "Airflow"],
-    category: "Fullstack",
-    image: "/images/data-pipeline.jpg",
-  },
-  {
-    id: 5,
-    title: "E-commerce Website",
-    description: "Created a modern e-commerce platform with advanced filtering and payment integration.",
-    tags: ["Next.js", "Stripe", "Tailwind CSS", "Prisma"],
-    category: "Frontend",
-    image: "/images/ecommerce-website.jpg",
-  },
-  {
-    id: 6,
-    title: "DevOps CI/CD Pipeline",
-    description: "Set up automated CI/CD pipelines for a microservices architecture using GitHub Actions and Kubernetes.",
-    tags: ["Kubernetes", "Docker", "GitHub Actions", "Terraform"],
-    category: "Fullstack",
-    image: "/images/devops-pipeline.jpg",
-  },
-  {
-    id: 7,
-    title: "iOS Fitness Tracker",
-    description: "Developed a native iOS fitness tracking app with HealthKit integration and social features.",
-    tags: ["Swift", "UIKit", "HealthKit", "CoreData"],
-    category: "Mobile",
-    image: "/images/ios-fitness-tracker.jpg",
-  },
-  {
-    id: 8,
-    title: "Blockchain Explorer",
-    description: "Designed and developed a web-based blockchain explorer with detailed transaction visualization.",
-    tags: ["Vue.js", "Web3.js", "GraphQL", "Node.js"],
-    category: "Frontend",
-    image: "/images/blockchain-explorer.jpg",
-  },
-  {
-    id: 9,
-    title: "Serverless Backend",
-    description: "Built a cost-effective serverless backend using AWS Lambda and API Gateway for a startup.",
-    tags: ["AWS Lambda", "DynamoDB", "Serverless", "Node.js"],
-    category: "Backend",
-    image: "/images/serverless-backend.jpg",
-  },
+  // {
+  //   id: 4,
+  //   title: "Data Pipeline Architecture",
+  //   description: "Designed and implemented a data processing pipeline for real-time analytics using Apache Kafka.",
+  //   tags: ["Python", "Kafka", "AWS", "Airflow"],
+  //   category: "Fullstack",
+  //   image: "/images/data-pipeline.jpg",
+  // },
+  // {
+  //   id: 5,
+  //   title: "E-commerce Website",
+  //   description: "Created a modern e-commerce platform with advanced filtering and payment integration.",
+  //   tags: ["Next.js", "Stripe", "Tailwind CSS", "Prisma"],
+  //   category: "Frontend",
+  //   image: "/images/ecommerce-website.jpg",
+  // },
+  // {
+  //   id: 6,
+  //   title: "DevOps CI/CD Pipeline",
+  //   description: "Set up automated CI/CD pipelines for a microservices architecture using GitHub Actions and Kubernetes.",
+  //   tags: ["Kubernetes", "Docker", "GitHub Actions", "Terraform"],
+  //   category: "Fullstack",
+  //   image: "/images/devops-pipeline.jpg",
+  // },
+  // {
+  //   id: 7,
+  //   title: "iOS Fitness Tracker",
+  //   description: "Developed a native iOS fitness tracking app with HealthKit integration and social features.",
+  //   tags: ["Swift", "UIKit", "HealthKit", "CoreData"],
+  //   category: "Mobile",
+  //   image: "/images/ios-fitness-tracker.jpg",
+  // },
+  // {
+  //   id: 8,
+  //   title: "Blockchain Explorer",
+  //   description: "Designed and developed a web-based blockchain explorer with detailed transaction visualization.",
+  //   tags: ["Vue.js", "Web3.js", "GraphQL", "Node.js"],
+  //   category: "Frontend",
+  //   image: "/images/blockchain-explorer.jpg",
+  // },
+  // {
+  //   id: 9,
+  //   title: "Serverless Backend",
+  //   description: "Built a cost-effective serverless backend using AWS Lambda and API Gateway for a startup.",
+  //   tags: ["AWS Lambda", "DynamoDB", "Serverless", "Node.js"],
+  //   category: "Backend",
+  //   image: "/images/serverless-backend.jpg",
+  // },
 ];
 
-const filters = ["All", "Backend", "Frontend", "Mobile", "Fullstack"];
-const activeFilter = ref("All");
+const filters = ["Semua", "Backend", "Frontend", "Mobile", "Fullstack"];
+const activeFilter = ref("Semua");
 const searchQuery = ref("");
 
 const filteredProjects = computed(() => {
   return projects.filter((project) => {
-    const matchCategory = activeFilter.value === "All" || project.category === activeFilter.value;
+    const matchCategory = activeFilter.value === "Semua" || project.category === activeFilter.value;
     const matchSearch = project.title.toLowerCase().includes(searchQuery.value.toLowerCase());
     return matchCategory && matchSearch;
   });
@@ -112,7 +115,7 @@ function setFilter(filter: string) {
 }
 
 function clearFilters() {
-  activeFilter.value = "All";
+  activeFilter.value = "Semua";
   searchQuery.value = "";
 }
 </script>
@@ -144,22 +147,28 @@ function clearFilters() {
             </Button>
           </div>
         </div>
-        <p class="text-sm text-muted-foreground text-center lg:text-start">Showing {{ filteredProjects.length }} of {{ projects.length }} projects</p>
+        <p class="text-sm text-muted-foreground text-center lg:text-start">
+          Menampilkan {{ filteredProjects.length }} dari {{ projects.length }} proyek
+        </p>
       </div>
 
       <div
         v-if="filteredProjects.length === 0"
         class="flex flex-col items-center justify-center border border-dashed rounded-md p-10 text-center text-muted-foreground"
       >
-        <p class="mb-4">No projects found matching your criteria</p>
-        <Button @click="clearFilters">Clear filters</Button>
+        <p class="mb-4">Tidak ada proyek yang cocok dengan kriteria kamu</p>
+        <Button @click="clearFilters">Bersihkan filter</Button>
       </div>
 
       <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-        <Card v-for="project in filteredProjects" :key="project.id" class="group overflow-hidden flex flex-col rounded-lg">
+        <Card v-motion-fade-visible :delay="500" v-for="project in projects" :key="project.id" class="group overflow-hidden flex flex-col rounded-lg">
           <div class="w-full h-50 overflow-hidden">
             <a data-fancybox="projects" :href="project.image" :data-caption="project.title">
-              <img :src="project.image" alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+              <img
+                :src="project.image"
+                :alt="project.title"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
             </a>
           </div>
 
@@ -168,7 +177,7 @@ function clearFilters() {
             <Badge variant="secondary" class="mt-1">{{ project.category }}</Badge>
           </CardHeader>
 
-          <CardContent class="text-sm text-muted-foreground p-4 lg:p-6">
+          <CardContent class="text-sm text-muted-foreground line-clamp-3 m-4 lg:m-6">
             {{ project.description }}
           </CardContent>
 
@@ -179,7 +188,7 @@ function clearFilters() {
               </Badge>
             </div>
 
-            <Button class="shadow-none flex items-center justify-center gap-2">
+            <Button variant="ghost" class="w-full shadow-none flex items-center justify-center gap-2">
               Lihat Detail
               <ArrowRight />
             </Button>

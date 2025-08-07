@@ -20,57 +20,54 @@ interface BlogItem {
 const blogs: BlogItem[] = [
   {
     id: 1,
-    title: "How Marketing Analytics is Reshaping Business Strategies",
-    category: "Analytics",
-    date: "April 18, 2023",
-    imageUrl:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-    excerpt: "Data-driven marketing is changing how companies make decisions. Learn how to leverage analytics for better results.",
+    title: "Bagaimana Laravel Membantu Developer Membangun Aplikasi Skala Besar",
+    category: "Laravel",
+    date: "18 April 2023",
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    excerpt:
+      "Laravel menawarkan struktur yang rapi, fitur bawaan yang kuat, dan ekosistem yang kaya — membuatnya cocok untuk proyek besar dan kompleks.",
   },
   {
     id: 2,
-    title: "The Rise of Video Marketing: Why You Can't Ignore It",
-    category: "Video",
-    date: "April 12, 2023",
-    imageUrl:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
-    excerpt: "Video content has become an essential part of modern marketing strategies. Find out why and how to get started.",
+    title: "Mengapa React Tetap Menjadi Pilihan Favorit untuk UI Modern",
+    category: "React",
+    date: "12 April 2023",
+    imageUrl: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
+    excerpt:
+      "React memberikan efisiensi dan fleksibilitas dalam membangun antarmuka pengguna. Pelajari alasan mengapa library ini terus mendominasi ekosistem frontend.",
   },
   {
     id: 3,
-    title: "Building Customer Loyalty Through Content Marketing",
-    category: "Content",
-    date: "April 5, 2023",
-    imageUrl:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-    excerpt: "Create content that not only attracts but retains customers. Strategies for building long-term relationships through your content.",
+    title: "Autentikasi dan Otorisasi di Aplikasi NestJS dengan JWT",
+    category: "NestJS",
+    date: "5 April 2023",
+    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    excerpt: "Pelajari cara implementasi sistem login aman menggunakan JWT di aplikasi backend berbasis NestJS.",
   },
   {
     id: 4,
-    title: "Social Media Trends That Will Dominate in 2023",
-    category: "Social Media",
-    date: "March 29, 2023",
-    imageUrl:
-      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80",
-    excerpt: "Stay ahead of the curve with these emerging social media trends that will shape the digital landscape this year.",
+    title: "Tren Web Development 2025: Teknologi dan Praktik yang Perlu Diikuti",
+    category: "Tren",
+    date: "29 Maret 2023",
+    imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
+    excerpt: "Mulai dari SSR, Edge Functions, hingga AI-assisted coding — ini dia tren web development yang akan mendominasi tahun 2025.",
   },
   {
     id: 5,
-    title: "Email Marketing Personalization: Going Beyond First Name",
-    category: "Email",
-    date: "March 22, 2023",
-    imageUrl:
-      "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-    excerpt: "Advanced techniques for personalizing your email campaigns that go well beyond simply using a subscriber's name.",
+    title: "Optimasi Performa Aplikasi React dengan Lazy Loading dan Memoization",
+    category: "Frontend",
+    date: "22 Maret 2023",
+    imageUrl: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80",
+    excerpt:
+      "React memiliki banyak fitur untuk meningkatkan performa, mulai dari code-splitting hingga memoization. Ketahui cara penerapannya di proyek nyata.",
   },
   {
     id: 6,
-    title: "Sustainable Marketing: Building Eco-Friendly Campaigns",
+    title: "Membangun Aplikasi Web Ramah Lingkungan: Praktik Pengembangan Berkelanjutan",
     category: "Sustainability",
-    date: "March 15, 2023",
-    imageUrl:
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-    excerpt: "How to integrate sustainability into your marketing strategy and connect with environmentally conscious consumers.",
+    date: "15 Maret 2023",
+    imageUrl: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    excerpt: "Ketahui bagaimana pengembang dapat membangun aplikasi web yang hemat energi, cepat, dan berdampak kecil terhadap lingkungan.",
   },
 ];
 
@@ -211,7 +208,7 @@ watch(
             description="Berbagi pengetahuan, pengalaman, serta pandangan tentang teknologi, pengembangan web, dan tren industri terkini."
           />
         </div>
-        <div class="hidden items-center space-x-2 sm:flex">
+        <div v-motion-fade-visible :delay="500" class="hidden items-center space-x-2 sm:flex">
           <Button
             variant="outline"
             size="icon"
@@ -238,9 +235,13 @@ watch(
           @touchend="handleTouchEnd"
         >
           <div v-for="post in blogs" :key="post.id" class="carousel-item w-full flex-none snap-start sm:w-1/2 lg:w-1/3 px-2 lg:px-3">
-            <Card class="group flex h-full flex-col overflow-hidden">
+            <Card v-motion-fade-visible :delay="500" class="group flex h-full flex-col overflow-hidden">
               <div class="w-full h-50 overflow-hidden">
-                <img :src="post.imageUrl" :alt="post.title" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                <img
+                  :src="post.imageUrl"
+                  :alt="post.title"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
                 <div class="absolute top-3 left-3">
                   <Badge class="bg-primary hover:bg-primary/90">
                     {{ post.category }}
@@ -258,7 +259,7 @@ watch(
                 </h3>
               </CardHeader>
 
-              <CardContent class="line-clamp-3 text-sm text-muted-foreground p-4 lg:p-6">
+              <CardContent class="text-sm text-muted-foreground line-clamp-3 m-4 lg:m-6">
                 {{ post.excerpt }}
               </CardContent>
 
@@ -272,7 +273,7 @@ watch(
           </div>
         </div>
 
-        <div class="sm:hidden" v-if="maxIndex > 0">
+        <div v-motion-fade-visible :delay="500" class="sm:hidden" v-if="maxIndex > 0">
           <div class="flex justify-center space-x-2">
             <button
               v-for="(_, i) in maxIndex + 1"
@@ -284,7 +285,7 @@ watch(
           </div>
         </div>
 
-        <div class="flex items-center justify-between sm:hidden">
+        <div v-motion-fade-visible :delay="500" class="flex items-center justify-between sm:hidden">
           <Button @click="handlePrevious" :disabled="currentIndex === 0" class="mr-2 h-9 flex-1 text-xs shadow-none">
             <ChevronLeft class="mr-1 h-4 w-4" />
             Prev
@@ -295,7 +296,7 @@ watch(
           </Button>
         </div>
 
-        <div class="flex justify-center">
+        <div v-motion-fade-visible :delay="500" class="flex justify-center">
           <Button variant="outline" class="w-full max-w-sm shadow-none" asChild>
             <RouterLink to="/blogs"> Lihat Semua Blog </RouterLink>
           </Button>
